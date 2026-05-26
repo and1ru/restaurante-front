@@ -34,4 +34,9 @@ export const dashboardActions = [
     image: "imagen",
     url: "/private/statistics",
   },
+  {
+    title: "create dish",
+    image: "imagen",
+    url: "/private/create-dish"
+  }
 ];
