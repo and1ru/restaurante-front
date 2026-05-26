@@ -4,6 +4,7 @@ import { LoginPage } from "../page/login-page";
 import { RegisterPage } from "../page/register-page";
 import { DashboardPage } from "../page/dashboard-page";
 import { CreateRestaurantPage } from "../page/create-restaurant-page";
+import { CreateDishPage } from "../page/create-dish-page";
 
 export const routes = createBrowserRouter([
     {
@@ -25,5 +26,9 @@ export const routes = createBrowserRouter([
     {
         path: "/private/create-restaurant",
         element: <CreateRestaurantPage/>
+    },
+    {
+        path: "/private/create-dish",
+        element: <CreateDishPage/>
     }
 ])
