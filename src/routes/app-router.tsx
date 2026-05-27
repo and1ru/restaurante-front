@@ -38,6 +38,10 @@ export const routes = createBrowserRouter([
         element: <CreateRestaurantPage />,
       },
       {
+        path: "create-sede",
+        element: <CreateSedePage />,
+      },
+      {
         path: "stadistics",
         element: <StadisticsPage />,
       },
@@ -45,10 +49,7 @@ export const routes = createBrowserRouter([
         path: "manage-employee",
         element: <ManageEmployeePage />,
       },
-      {
-        path: "create-sede",
-        element: <CreateSedePage />,
-      },
+
       {
         path: "create-dish",
         element: <CreateDishPage />,

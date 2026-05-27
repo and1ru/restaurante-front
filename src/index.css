@@ -4,3 +4,12 @@
     transform: scale(0.9);
     transition: .2s;
 }
+
+.input-style{
+    box-shadow: 0px 2px 20px 0px #55c;
+    padding: 10px;
+}
+
+.input-style:focus{
+    outline: none;
+}

@@ -9,17 +9,17 @@ export const CreateSedePage = () => {
           <input
             type="text"
             placeholder="country"
-            className="p-2 rounded-lg shadow-xl"
+            className="p-2 rounded-lg input-style"
           />
           <input
             type="text"
             placeholder="city"
-            className="p-2 rounded-lg shadow-xl"
+            className="p-2 rounded-lg input-style"
           />
           <input
             type="text"
             placeholder="address"
-            className="p-2 rounded-lg shadow-xl"
+            className="p-2 rounded-lg input-style"
           />
           <button className="bg-green-500 p-2 rounded-lg">Crear</button>
         </form>
