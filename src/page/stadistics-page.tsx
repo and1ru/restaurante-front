@@ -1,10 +1,11 @@
 import { EstadisticasCardComponent } from "../components/estadisticas-card-component";
+import { SectionComponent } from "../components/select-component";
 
 export const StadisticsPage = () => {
   return (
     <>
       <h1 className="text-center text-2xl font-bold">ESTADISTICAS</h1>
-      <section className="p-5 shadow-xl shadow-black/80 rounded-lg">
+      <SectionComponent>
         <form className="flex flex-col gap-5 mb-5">
           <label htmlFor="sede">seleccina sede</label>
           <input
@@ -29,13 +30,13 @@ export const StadisticsPage = () => {
           <option value="year">este año</option>
           <option value="always">siempre</option>
         </select>
-      </section>
-      <section>
+      </SectionComponent>
+      <SectionComponent>
         <EstadisticasCardComponent />
-      </section>
-      <section className="p-5 shadow-xl shadow-black/80 rounded-lg">
+      </SectionComponent>
+      <SectionComponent>
         <h2 className="text-center text-xl font-bold">Grafica</h2>
-      </section>
+      </SectionComponent>
     </>
   );
 };

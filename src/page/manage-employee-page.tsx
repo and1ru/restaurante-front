@@ -8,11 +8,12 @@
 //
 
 import { EmployeeCardComponent } from "../components/employee-card-component";
+import { SectionComponent } from "../components/select-component";
 
 export const ManageEmployeePage = () => {
   return (
     <>
-        <section>
+        <SectionComponent>
           <form>
             <input type="text" />
             <button type="button">buscar</button>
@@ -25,11 +26,11 @@ export const ManageEmployeePage = () => {
             <option value="">Admin</option>
             <option value="">waitress</option>
           </select>
-        </section>
-        <section>
+        </SectionComponent>
+        <SectionComponent>
           <EmployeeCardComponent />
-        </section>
-        <section>
+        </SectionComponent>
+        <SectionComponent>
           <h1 className="text-center text-2xl font-bold">
             GENERAR CODIGO DE CONTRATACION
           </h1>
@@ -41,7 +42,7 @@ export const ManageEmployeePage = () => {
           <select name="" id="">
             <option value="">seleccionar sede</option>
           </select>
-        </section>
+        </SectionComponent>
     </>
   );
 };

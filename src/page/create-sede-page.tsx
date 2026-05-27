@@ -1,7 +1,9 @@
+import { SectionComponent } from "../components/select-component";
+
 export const CreateSedePage = () => {
   return (
     <>
-      <section className="shadow-xl shadow-black/60 p-10 rounded-lg">
+      <SectionComponent>
         <h1 className="text-2xl text-center font-bold mb-10">Create sede</h1>
         <form className="flex flex-col gap-5">
           <input
@@ -21,7 +23,7 @@ export const CreateSedePage = () => {
           />
           <button className="bg-green-500 p-2 rounded-lg">Crear</button>
         </form>
-      </section>
+      </SectionComponent>
     </>
   );
 };

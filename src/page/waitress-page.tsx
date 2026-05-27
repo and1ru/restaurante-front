@@ -1,10 +1,11 @@
 import { dishes } from "../helper/dishes";
 import { DishCardComponent } from "../components/dish-card-component";
+import { SectionComponent } from "../components/select-component";
 
 export const WaitressPage = () => {
   return (
     <>
-        <section>
+        <SectionComponent>
           <form>
             <input 
             className="p-2 shadow-xl rounded-lg w-full"
@@ -13,15 +14,15 @@ export const WaitressPage = () => {
               <option value="">category</option>
             </select>
           </form>
-        </section>
-        <section className="">
+        </SectionComponent>
+        <SectionComponent>
           <h1 className="text-center text-2xl font-bold">DISHES</h1>
           {
             dishes.map((dish) => (
               <DishCardComponent image={dish.image} key={dish.id} name={dish.name} price={dish.price}/>
             ))
           }
-        </section>
+        </SectionComponent>
     </>
   );
 };

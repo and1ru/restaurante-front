@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { SectionComponent } from "../components/select-component";
 
 export const CreateDishPage = () => {
   const imagenRef = useRef<HTMLInputElement | null>(null);
@@ -9,7 +10,7 @@ export const CreateDishPage = () => {
 
   return (
     <>
-      <section className="shadow-xl shadow-black/80 rounded-lg p-10">
+      <SectionComponent>
         <h1 className="text-center text-2xl font-bold mb-10">Create Dish</h1>
         <form className="flex flex-col gap-4">
           <input
@@ -39,7 +40,7 @@ export const CreateDishPage = () => {
             Crear
           </button>
         </form>
-      </section>
+      </SectionComponent>
     </>
   );
 };
