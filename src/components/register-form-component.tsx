@@ -10,7 +10,8 @@ export const RegisterForm = () => {
     const {control, handleSubmit, formState: {errors}} = useForm<registerType>({
         defaultValues: {
             email: "",
-            password: ""
+            password: "",
+            confirmPassword: ""
         },
         mode: "onBlur",
         resolver: zodResolver(registerSchema)
