@@ -9,46 +9,58 @@ import { ManageEmployeePage } from "../page/manage-employee-page";
 import { CreateSedePage } from "../page/create-sede-page";
 import { CreateDishPage } from "../page/create-dish-page";
 import { ChefPage } from "../page/chef-page";
+import { Root } from "../page/root";
+import { WaitressPage } from "../page/waitress-page";
 
 export const routes = createBrowserRouter([
-    {
-       path:"",
-       element: <HomePage/> 
-    },
-    {
-        path: "/login",
-        element: <LoginPage/>
-    },
-    {
-        path: "/register",
-        element: <RegisterPage/>
-    },
-    {
-        path: "/private/dashboard",
-        element: <DashboardPage/>
-    },
-    {
-        path: "/private/create-restaurant",
-        element: <CreateRestaurantPage/>
-    },
-    {
-        path: "/private/stadistics",
-        element: <StadisticsPage/>
-    },
-    {
-        path: "/private/manage-employee",
-        element: <ManageEmployeePage/>
-    },
-    {
-        path: "/private/create-sede",
-        element: <CreateSedePage/>
-    },
-    {
-        path: "/private/create-dish",
-        element: <CreateDishPage/>
-    },
-    {
-        path: "/private/chef",
-        element: <ChefPage/>
-    }
-])
+  {
+    path: "",
+    element: <HomePage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
+  },
+  {
+    path: "/private/dashboard",
+    element: <DashboardPage />,
+  },
+  {
+    path: "/private/",
+    element: <Root />,
+    children: [
+      {
+        path: "create-restaurant",
+        element: <CreateRestaurantPage />,
+      },
+      {
+        path: "stadistics",
+        element: <StadisticsPage />,
+      },
+      {
+        path: "manage-employee",
+        element: <ManageEmployeePage />,
+      },
+      {
+        path: "create-sede",
+        element: <CreateSedePage />,
+      },
+      {
+        path: "create-dish",
+        element: <CreateDishPage />,
+      },
+      {
+        path: "chef",
+        element: <ChefPage />,
+      },
+      {
+        path: "waitress",
+        element: <WaitressPage/>
+      }
+    ],
+  },
+]);

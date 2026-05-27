@@ -26,7 +26,7 @@ export const dashboardActions = [
   {
     title: "Manage employees",
     image: "imagen",
-    url: "/private/employees",
+    url: "/private/manage-employee",
   },
 
   {

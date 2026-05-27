@@ -12,7 +12,6 @@ import { EmployeeCardComponent } from "../components/employee-card-component";
 export const ManageEmployeePage = () => {
   return (
     <>
-      <main className="p-5">
         <section>
           <form>
             <input type="text" />
@@ -43,7 +42,6 @@ export const ManageEmployeePage = () => {
             <option value="">seleccionar sede</option>
           </select>
         </section>
-      </main>
     </>
   );
 };

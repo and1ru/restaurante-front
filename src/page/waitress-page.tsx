@@ -1,22 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import { dishes } from "../helper/dishes";
 import { DishCardComponent } from "../components/dish-card-component";
 
 export const WaitressPage = () => {
-  const navegar = useNavigate();
-  function handleClick() {
-    navegar("/private/dashboard", { replace: true });
-  }
   return (
     <>
-      <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
-        <button onClick={handleClick} type="button" className="text-2xl">
-          {"⬅️"}
-        </button>
-        <h1>Manejador de restaurantes</h1>
-        <button className="bg-red-600 p-2 rounded-lg">salir</button>
-      </header>
-      <main className="p-6 max-w-7xl mx-auto">
         <section>
           <form>
             <input 
@@ -35,7 +22,6 @@ export const WaitressPage = () => {
             ))
           }
         </section>
-      </main>
     </>
   );
 };
