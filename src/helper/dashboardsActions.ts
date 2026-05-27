@@ -32,7 +32,7 @@ export const dashboardActions = [
   {
     title: "Statistics",
     image: "imagen",
-    url: "/private/statistics",
+    url: "/private/stadistics",
   },
   {
     title: "create dish",
