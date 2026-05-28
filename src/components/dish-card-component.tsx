@@ -1,3 +1,5 @@
+import { style } from "../helper/style";
+
 interface Props {
     image:string;
     key: number;
@@ -11,8 +13,8 @@ export const DishCardComponent = ({image, key, name, price}:Props) => {
         <img src={image} alt={`imagen ${name} dish`} className="w-full h-30 rounded-lg" />
         <p>{name}</p>
         <p>{price}$</p>
-        <button className="bg-green-500 w-full p-2 rounded-lg text-white font-bold">Agregar</button>
-        <button className="bg-blue-500 w-full p-2 rounded-lg text-white font-bold">Ver mas</button>
+        <button className={style.button}>Agregar</button>
+        <button className={style.buttonSecondary}>Ver mas</button>
     </div>
   );
 };

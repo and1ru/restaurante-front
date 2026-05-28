@@ -2,6 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { createRestaurantSchema, type createRestaurantType } from "../schemas/create-restaurant";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./input-component";
+import { style } from "../helper/style";
 
 export const CreateRestaurantFormComponent = () => {
       const {control, handleSubmit, formState: {errors}} = useForm<createRestaurantType>({
@@ -18,7 +19,7 @@ export const CreateRestaurantFormComponent = () => {
   return (
     <form onSubmit={handleSubmit(handleForm)}>
       <Input control={control} label="nombre empresa" name="nameRestaurant" type="text" error={errors.nameRestaurant}/>
-      <button className="bg-green-500 p-2 rounded-lg font-bold">crear</button>
+      <button className={style.button}>crear</button>
     </form>
   );
 };

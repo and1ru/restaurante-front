@@ -1,6 +1,32 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-background: #fff;
+  --color-background-secondary: #D9D2BF;
+
+  --color-foreground: #5F6A8C;
+  --color-foreground-secondary: #8C846D;
+
+  --color-primary: #5F6A8C;
+  --color-primary-light: #BFC5D9;
+
+  --color-accent: #8C846D;
+
+  --color-border: #D9D2BF;
+
+  --color-card: #FFFEFA;
+  --color-card-foreground: #5F6A8C;
+}
+
+.card{
+    box-shadow: 0px 0px 10px 0.5px #1F2937;
+}
+
+.card:hover{
+    box-shadow: 0px 0px 10px 3px #1F2937;   
+}
+
 .button-transform:active{
     transform: scale(0.9);
     transition: .2s;

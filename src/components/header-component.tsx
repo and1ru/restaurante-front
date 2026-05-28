@@ -8,7 +8,7 @@ export const HeaderComponent = () => {
     navigate("/private/dashboard", { replace: true });
   }
   return (
-    <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
+    <header className="bg-gray-800 text-white p-4 flex justify-between items-centerclear">
       <button onClick={handleBack} type="button" className="text-2xl">
         ⬅️
       </button>

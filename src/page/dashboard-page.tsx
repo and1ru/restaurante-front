@@ -4,9 +4,9 @@ import { dashboardActions } from "../helper/dashboardsActions";
 export const DashboardPage = () => {
   return (
     <>
-      <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
-        <h1>Manejador de restaurantes</h1>
-        <button className="bg-red-600 p-2 rounded-lg">salir</button>
+      <header className="bg-gray-800  p-4 flex justify-between items-center">
+        <h1 className="text-white text-xl">Manejador de restaurantes</h1>
+        <button className="bg-orange-200 p-2 font-bold rounded-lg">salir</button>
       </header>
       <main className="p-6 max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold">Hi, Andres 👋🏽</h2>
