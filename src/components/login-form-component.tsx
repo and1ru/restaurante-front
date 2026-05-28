@@ -3,6 +3,7 @@ import { Input } from "./input-component";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type loginType } from "../schemas/login";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { style } from "../helper/style";
 
 export const LoginForm = () => {
     const navegar = useNavigate()
@@ -21,10 +22,10 @@ export const LoginForm = () => {
         navegar("/private/dashboard", {replace:true})
     }
   return (
-        <form onSubmit={handleSubmit(handleForm)} className="flex flex-col">
+        <form onSubmit={handleSubmit(handleForm)} className={style.form}>
             <Input control={control} label="Correo" name="email" type="text" error={errors.email}/>
             <Input control={control} label="Contraseña" name="password" type="password" error={errors.password}/>
-            <button className="p-2 rounded-lg w-full bg-blue-500 text-white font-bold hover:bg-blue-600 button-transform mb-5">Enviar</button>
+            <button className={style.button}>Enviar</button>
         </form>
   );
 };

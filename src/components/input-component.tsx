@@ -1,10 +1,6 @@
-import {
-  Controller,
-  type Control,
-  type FieldError,
-  type FieldValues,
-  type Path,
-} from "react-hook-form";
+import type {Control, FieldError, FieldValues, Path} from "react-hook-form";
+import {Controller,} from "react-hook-form"
+import { style } from "../helper/style";
 
 interface Props<T extends FieldValues> {
   type: string;
@@ -16,15 +12,15 @@ interface Props<T extends FieldValues> {
 
 export const Input = <T extends FieldValues>({type,name,label,error,control}: Props<T>) => {
   return (
-    <>
+    <div className="flex flex-col gap-2">
       <label htmlFor={name}>{label}</label>
       <Controller
         control={control}
         name={name}
-        render={({ field }) => <input {...field} id={name} type={type} />}
+        render={({ field }) => <input {...field} id={name} type={type} className={style.input} />}
       />
 
-      {error ? <p>{error.message}</p> : null}
-    </>
+      {error ? <p className={style.error}>{error.message}</p> : ""}
+    </div>
   );
 };
