@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { DarkModeComponent } from "./darkmode-component";
 
 export const HeaderComponent = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export const HeaderComponent = () => {
       </button>
 
       <h1 className="text-xl font-bold">Manejador de restaurantes</h1>
-
+      <DarkModeComponent/>
       <button className="bg-red-600 px-4 py-2 rounded-lg">Salir</button>
     </header>
   );
