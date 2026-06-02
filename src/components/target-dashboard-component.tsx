@@ -7,7 +7,7 @@ interface Props {
   url: string;
 }
 
-export const TargetDashboardComponent = ({ imagen, title, url }: Props) => {
+export const TargetDashboardComponent = ({imagen, title, url }: Props) => {
   const navigate = useNavigate();
   return (
     <div onClick={() => navigate(url)} className={style.card}>

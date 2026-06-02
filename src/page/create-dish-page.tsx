@@ -25,7 +25,7 @@ export const CreateDishPage = () => {
           >
             seleccionar imagen
           </button>
-          <input type="file" className="hidden" ref={imagenRef} />
+          <input type="file" accept="image/*" className="hidden" ref={imagenRef}/>
           <textarea
             name=""
             id=""
