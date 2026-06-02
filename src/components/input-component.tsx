@@ -8,16 +8,17 @@ interface Props<T extends FieldValues> {
   label: string;
   control: Control<T>;
   error?: FieldError;
+  minimo?:string
 }
 
-export const Input = <T extends FieldValues>({type,name,label,error,control}: Props<T>) => {
+export const Input = <T extends FieldValues>({type,name,label,error,control, minimo}: Props<T>) => {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={name}>{label}</label>
       <Controller
         control={control}
         name={name}
-        render={({ field }) => <input {...field} id={name} type={type} className={style.input} />}
+        render={({ field }) => <input {...field} id={name} type={type} className={style.input} min={minimo}/>}
       />
 
       {error ? <p className={style.error}>{error.message}</p> : ""}

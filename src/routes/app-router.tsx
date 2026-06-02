@@ -11,6 +11,7 @@ import { CreateDishPage } from "../page/create-dish-page";
 import { ChefPage } from "../page/chef-page";
 import { Root } from "../page/root";
 import { WaitressPage } from "../page/waitress-page";
+import { BookPage } from "../page/book-page";
 
 export const routes = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const routes = createBrowserRouter([
     path: "/private/",
     element: <Root />,
     children: [
+      {
+        path: "book",
+        element: <BookPage/>
+      },
       {
         path: "create-restaurant",
         element: <CreateRestaurantPage />,

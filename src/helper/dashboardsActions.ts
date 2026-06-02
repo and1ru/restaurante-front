@@ -9,9 +9,9 @@ import friedRice from "../assets/images/fried-rice.png";
 
 export const dashboardActions = [
   {
-    title: "Book reservation",
+    title: "Book",
     image: reservation,
-    url: "/private/book-reservation",
+    url: "/private/book",
   },
   {
     title: "Create a new restaurant",
