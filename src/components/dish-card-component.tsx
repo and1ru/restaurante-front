@@ -9,8 +9,8 @@ interface Props {
 
 export const DishCardComponent = ({image, key, name, price}:Props) => {
   return (
-    <div key={key} className="shadow-xl shadow-black p-4 w-50 mx-auto flex flex-col gap-3 rounded-lg">
-        <img src={image} alt={`imagen ${name} dish`} className="w-full h-30 rounded-lg" />
+    <div key={key} className={style.cardDish}>
+        <img src={image} alt={`imagen ${name} dish`} className="w-full h-40 rounded-lg border" />
         <p>{name}</p>
         <p>{price}$</p>
         <button className={style.button}>Agregar</button>

@@ -1,5 +1,5 @@
 import { EstadisticasCardComponent } from "../components/estadisticas-card-component";
-import { SectionComponent } from "../components/select-component";
+import { SectionComponent } from "../components/section-component";
 
 export const StadisticsPage = () => {
   return (

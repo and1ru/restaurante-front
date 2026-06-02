@@ -6,7 +6,7 @@ interface Props{
 
 export const SectionComponent = ({children}:Props) => {
   return (
-    <section className="p-5 shadow-xl shadow-black/80 rounded-lg">
+    <section className="p-5 mb-10 section-shadow rounded-lg md:py-10">
         {children}
     </section>
   );

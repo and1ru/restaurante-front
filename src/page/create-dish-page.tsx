@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { SectionComponent } from "../components/select-component";
+import { SectionComponent } from "../components/section-component";
 
 export const CreateDishPage = () => {
   const imagenRef = useRef<HTMLInputElement | null>(null);

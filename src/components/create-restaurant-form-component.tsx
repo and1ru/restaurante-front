@@ -17,7 +17,7 @@ export const CreateRestaurantFormComponent = () => {
           console.log(data)
       }
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
+    <form onSubmit={handleSubmit(handleForm)} className={style.form}>
       <Input control={control} label="nombre empresa" name="nameRestaurant" type="text" error={errors.nameRestaurant}/>
       <button className={style.button}>crear</button>
     </form>

@@ -19,7 +19,7 @@ export const CreateSedeFormComponent = () => {
               console.log(data)
           }
   return (
-    <form onSubmit={handleSubmit(handleForm)}>
+    <form onSubmit={handleSubmit(handleForm)} className={style.form}>
         <Input control={control} label="Country" name="country" type="text" error={errors.country} />
         <Input control={control} label="City" name="city" type="text" error={errors.city} />
         <Input control={control} label="Address" name="address" type="text" error={errors.address} />

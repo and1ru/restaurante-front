@@ -12,8 +12,8 @@ export const DashboardPage = () => {
         <h2 className="text-3xl font-bold">Hi, Andres 👋🏽</h2>
         <h2 className="text-xl font-bold">Administrador - medellin</h2>
         <hr className="my-2" />
-        <section className="grid grid-cols-2 gap-5 justify-center">
-          <h2 className="w-full text-xl font-bold col-span-2">what will you do?</h2>
+        <section className="grid grid-cols-2 gap-5 justify-center md:grid-cols-4">
+          <h2 className="w-full text-xl font-bold col-span-2 md:col-span-4">what will you do?</h2>
           { dashboardActions.map((action) => (
             <TargetDashboardComponent imagen={action.image} title={action.title} url={action.url} />
           ))}

@@ -1,6 +1,6 @@
 import { dishes } from "../helper/dishes";
 import { DishCardComponent } from "../components/dish-card-component";
-import { SectionComponent } from "../components/select-component";
+import { SectionComponent } from "../components/section-component";
 
 export const WaitressPage = () => {
   return (
@@ -15,14 +15,14 @@ export const WaitressPage = () => {
             </select>
           </form>
         </SectionComponent>
-        <SectionComponent>
-          <h1 className="text-center text-2xl font-bold">DISHES</h1>
+        <section className="flex flex-col gap-10 md:grid md:grid-cols-2 xl:grid-cols-5">
+          <h1 className="text-center text-2xl font-bold mb-5 md:col-span-2 xl:col-span-5">DISHES</h1>
           {
             dishes.map((dish) => (
               <DishCardComponent image={dish.image} key={dish.id} name={dish.name} price={dish.price}/>
             ))
           }
-        </SectionComponent>
+        </section>
     </>
   );
 };

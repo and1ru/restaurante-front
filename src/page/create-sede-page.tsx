@@ -1,5 +1,5 @@
 import { CreateSedeFormComponent } from "../components/create-sede-form-component";
-import { SectionComponent } from "../components/select-component";
+import { SectionComponent } from "../components/section-component";
 
 export const CreateSedePage = () => {
   return (
