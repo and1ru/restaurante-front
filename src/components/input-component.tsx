@@ -8,7 +8,7 @@ interface Props<T extends FieldValues> {
   label: string;
   control: Control<T>;
   error?: FieldError;
-  minimo?:string
+  minimo?:string | number
 }
 
 export const Input = <T extends FieldValues>({type,name,label,error,control, minimo}: Props<T>) => {

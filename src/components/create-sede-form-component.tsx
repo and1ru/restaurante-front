@@ -5,25 +5,26 @@ import { Input } from "./input-component";
 import { style } from "../helper/style";
 
 export const CreateSedeFormComponent = () => {
-          const {control, handleSubmit, formState: {errors}} = useForm<createSedeType>({
-              defaultValues: {
-                address: "",
-                city: "",
-                country: ""
-              },
-              mode: "onBlur",
-              resolver: zodResolver(createSedeSchema)
-          })
-      
-          const handleForm:SubmitHandler<createSedeType> = (data) => {
-              console.log(data)
-          }
+  const { control, handleSubmit, formState: { errors } } = useForm<createSedeType>({
+    defaultValues: {
+      address: "",
+      city: "",
+      country: ""
+    },
+    mode: "onBlur",
+    resolver: zodResolver(createSedeSchema)
+  })
+
+  const handleForm: SubmitHandler<createSedeType> = (data) => {
+    console.log(data)
+  }
   return (
     <form onSubmit={handleSubmit(handleForm)} className={style.form}>
-        <Input control={control} label="Country" name="country" type="text" error={errors.country} />
-        <Input control={control} label="City" name="city" type="text" error={errors.city} />
-        <Input control={control} label="Address" name="address" type="text" error={errors.address} />
-        <button className={style.button}>Crear</button>
+      <Input control={control} label="Country" name="country" type="text" error={errors.country} />
+      <Input control={control} label="City" name="city" type="text" error={errors.city} />
+      <Input control={control} label="Address" name="address" type="text" error={errors.address} />
+      <Input control={control} label="tables" name="table" type="number" error={errors.table} minimo={1} />
+      <button className={style.button}>Crear</button>
     </form>
   );
 };
