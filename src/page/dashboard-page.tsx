@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { TargetDashboardComponent } from "../components/target-dashboard-component";
 import { dashboardActions } from "../helper/dashboardsActions";
 
 export const DashboardPage = () => {
+
+  const navigate = useNavigate()
+    function goToLogin(){
+    navigate("/login", { replace: true });
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
 
@@ -12,7 +19,9 @@ export const DashboardPage = () => {
             Restaurante Manager
           </h1>
 
-          <button className="px-4 py-2 rounded-lg bg-red-500 text-white font-medium hover:bg-red-600 transition">
+          <button 
+          onClick={goToLogin}
+          className="px-4 py-2 rounded-lg bg-red-500 text-white font-medium hover:bg-red-600 transition">
             Salir
           </button>
         </div>

@@ -7,15 +7,42 @@ export const HeaderComponent = () => {
   function handleBack() {
     navigate("/private/dashboard", { replace: true });
   }
-  return (
-    <header className="bg-gray-800 text-white p-4 flex gap-7 justify-between items-centerclear">
-      <button onClick={handleBack} type="button" className="text-2xl">
-        ⬅️
-      </button>
 
-      <h1 className="text-xl font-bold">Manejador de restaurantes</h1>
-      <DarkModeComponent/>
-      <button className="bg-red-600 px-4 py-2 rounded-lg">Salir</button>
+  function goToLogin(){
+    navigate("/login", { replace: true });
+  }
+
+  return (
+    <header className="bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        {/* Izquierda */}
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={handleBack}
+            className="w-10 h-10 rounded-lg border border-gray-200 hover:bg-gray-100 transition text-xl"
+          >
+            ←
+          </button>
+
+          <h1 className="text-xl font-bold text-gray-800">
+            Restaurante Manager
+          </h1>
+        </div>
+
+        {/* Derecha */}
+        <div className="flex items-center gap-4">
+          <DarkModeComponent />
+
+          <button
+          onClick={goToLogin}
+          className="px-4 py-2 rounded-lg bg-red-500 text-white font-medium hover:bg-red-600 transition">
+            Salir
+          </button>
+        </div>
+
+      </div>
     </header>
   );
 };
