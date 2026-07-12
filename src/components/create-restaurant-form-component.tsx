@@ -5,21 +5,40 @@ import { Input } from "./input-component";
 import { style } from "../helper/style";
 
 export const CreateRestaurantFormComponent = () => {
-      const {control, handleSubmit, formState: {errors}} = useForm<createRestaurantType>({
-          defaultValues: {
-            nameRestaurant: ""
-          },
-          mode: "onBlur",
-          resolver: zodResolver(createRestaurantSchema)
-      })
-  
-      const handleForm:SubmitHandler<createRestaurantType> = (data) => {
-          console.log(data)
-      }
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<createRestaurantType>({
+    defaultValues: {
+      nameRestaurant: "",
+    },
+    mode: "onBlur",
+    resolver: zodResolver(createRestaurantSchema),
+  });
+
+  const handleForm: SubmitHandler<createRestaurantType> = (data) => {
+    console.log(data);
+  };
+
   return (
-    <form onSubmit={handleSubmit(handleForm)} className={style.form}>
-      <Input control={control} label="nombre empresa" name="nameRestaurant" type="text" error={errors.nameRestaurant}/>
-      <button className={style.button}>crear</button>
+    <form
+      onSubmit={handleSubmit(handleForm)}
+      className="flex flex-col gap-6"
+    >
+      <Input
+        control={control}
+        label="Nombre del restaurante"
+        name="nameRestaurant"
+        type="text"
+        error={errors.nameRestaurant}
+      />
+
+      <button
+        className="w-full rounded-lg bg-black py-3 font-semibold text-white transition hover:bg-gray-800"
+      >
+        Crear restaurante
+      </button>
     </form>
   );
 };
