@@ -3,22 +3,58 @@ import { dashboardActions } from "../helper/dashboardsActions";
 
 export const DashboardPage = () => {
   return (
-    <>
-      <header className="bg-gray-800  p-4 flex justify-between items-center transform-">
-        <h1 className="text-white text-xl">Manejador de restaurantes</h1>
-        <button className="bg-orange-200 p-2 font-bold rounded-lg">salir</button>
+    <div className="min-h-screen bg-gray-50">
+
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-gray-800">
+            Restaurante Manager
+          </h1>
+
+          <button className="px-4 py-2 rounded-lg bg-red-500 text-white font-medium hover:bg-red-600 transition">
+            Salir
+          </button>
+        </div>
       </header>
-      <main className="p-6 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold">Hi, Andres 👋🏽</h2>
-        <h2 className="text-xl font-bold">Administrador - medellin</h2>
-        <hr className="my-2" />
-        <section className="grid grid-cols-2 gap-5 justify-center md:grid-cols-4">
-          <h2 className="w-full text-xl font-bold col-span-2 md:col-span-4">what will you do?</h2>
-          { dashboardActions.map((action) => (
-            <TargetDashboardComponent imagen={action.image} title={action.title} url={action.url} />
-          ))}
+
+      {/* Contenido */}
+      <main className="max-w-7xl mx-auto p-6">
+
+        {/* Bienvenida */}
+        <section className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm mb-8">
+          <p className="text-gray-500 text-sm">
+            Bienvenido de nuevo
+          </p>
+
+          <h2 className="text-3xl font-bold text-gray-800 mt-2">
+            Hola, Andrés 👋
+          </h2>
+
+          <p className="text-gray-600 mt-1">
+            Administrador • Medellín
+          </p>
         </section>
+
+        {/* Acciones */}
+        <section>
+          <h3 className="text-xl font-semibold text-gray-800 mb-6">
+            ¿Qué deseas hacer?
+          </h3>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+            {dashboardActions.map((action) => (
+              <TargetDashboardComponent
+                key={action.url}
+                imagen={action.image}
+                title={action.title}
+                url={action.url}
+              />
+            ))}
+          </div>
+        </section>
+
       </main>
-    </>
+    </div>
   );
 };
