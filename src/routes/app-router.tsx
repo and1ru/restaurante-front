@@ -1,17 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import { HomePage } from "../page/home-page";
-import { LoginPage } from "../page/login-page";
-import { RegisterPage } from "../page/register-page";
-import { DashboardPage } from "../page/dashboard-page";
-import { CreateRestaurantPage } from "../page/create-restaurant-page";
-import { StadisticsPage } from "../page/stadistics-page";
-import { ManageEmployeePage } from "../page/manage-employee-page";
-import { CreateSedePage } from "../page/create-sede-page";
-import { CreateDishPage } from "../page/create-dish-page";
-import { ChefPage } from "../page/chef-page";
-import { Root } from "../page/root";
-import { WaitressPage } from "../page/waitress-page";
-import { BookPage } from "../page/book-page";
+import { HomePage } from "../page/Home/Home";
+import { LoginPage } from "../page/Login/Login";
+import { RegisterPage } from "../page/Register/Register";
+import { DashboardPage } from "../page/DashBoard/Dashboard";
+import { BookPage } from "../page/Book/Book";
+import { CreateRestaurantPage } from "../page/CreateRestaurant/CreateRestaurant";
+import { CreateSedePage } from "../page/CreateBranch/CreateBranch";
+import { StadisticsPage } from "../page/Statistics/Statistics";
+import { ManageEmployeePage } from "../page/Employees/Employees";
+import { CreateDishPage } from "../page/CreateDish/CreateDish";
+import { ChefPage } from "../page/Chef/Chef";
+import { WaitressPage } from "../page/Waitress/Waitress";
+import { Root } from "../page/Root/Root";
 
 export const routes = createBrowserRouter([
   {
