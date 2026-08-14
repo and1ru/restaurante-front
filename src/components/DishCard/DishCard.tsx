@@ -1,3 +1,5 @@
+import { DishDetails } from "../DishDetails/DishDetails";
+
 interface Props {
     image: string;
     name: string;
@@ -6,13 +8,12 @@ interface Props {
 
 export const DishCard = ({ image, name, price }: Props) => {
     return (
-        <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+        <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
             <img
                 src={image}
                 alt={`Dish ${name}`}
                 className="h-52 w-full object-cover"
             />
-
             <div className="space-y-4 p-5">
                 <div className="flex items-center justify-between">
                     <h2 className="text-lg font-semibold text-gray-900">
@@ -23,17 +24,13 @@ export const DishCard = ({ image, name, price }: Props) => {
                         ${price}
                     </span>
                 </div>
-
                 <div className="flex gap-3">
                     <button className="flex-1 rounded-lg bg-black py-2.5 font-medium text-white transition hover:bg-gray-800">
                         Add
                     </button>
-
-                    <button className="flex-1 rounded-lg border border-gray-300 py-2.5 font-medium transition hover:bg-gray-100">
-                        Details
-                    </button>
+                    <DishDetails />
                 </div>
             </div>
-        </article>
+        </div>
     );
 };

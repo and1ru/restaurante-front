@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { dashboardActions } from "../../helper/dashboardsActions";
-import { DashboardCard } from "../../components/DashboardCard/DashboardCard";
+import { SectionCard } from "../../components/SectionCard/SectionCard";
 
 export const DashboardPage = () => {
 
@@ -53,7 +53,7 @@ export const DashboardPage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {dashboardActions.map((action) => (
-              <DashboardCard
+              <SectionCard
                 key={action.url}
                 imagen={action.image}
                 title={action.title}

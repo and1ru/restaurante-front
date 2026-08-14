@@ -11,7 +11,7 @@ export const dashboardActions = [
   {
     title: "Book",
     image: reservation,
-    url: "/private/book",
+    url: "/private/reservation",
   },
   {
     title: "Create a new restaurant",

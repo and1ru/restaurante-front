@@ -6,7 +6,7 @@ interface Props {
   url: string;
 }
 
-export const DashboardCard = ({
+export const SectionCard = ({
   imagen,
   title,
   url,

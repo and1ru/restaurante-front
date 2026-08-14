@@ -6,11 +6,7 @@ import { Input } from "../../components/Input/Input";
 export const BookPage = () => {
     const today = new Date().toISOString().split("T")[0];
 
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<reservationType>({
+    const {control,handleSubmit,formState: { errors }} = useForm<reservationType>({
         defaultValues: {
             day: new Date(),
             name: "",

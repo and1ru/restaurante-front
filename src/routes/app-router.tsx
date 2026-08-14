@@ -12,6 +12,10 @@ import { CreateDishPage } from "../page/CreateDish/CreateDish";
 import { ChefPage } from "../page/Chef/Chef";
 import { WaitressPage } from "../page/Waitress/Waitress";
 import { Root } from "../page/Root/Root";
+import { Custommer } from "../page/Custommer/Custommer";
+import { NotFound } from "../page/NotFound/NotFound";
+import { Reservation } from "../page/Reservation/Reservation";
+import { ConfirmBook } from "../page/ConfirmBook/ConfirmBook";
 
 export const routes = createBrowserRouter([
   {
@@ -29,6 +33,10 @@ export const routes = createBrowserRouter([
   {
     path: "/private/dashboard",
     element: <DashboardPage />,
+  },
+  {
+    path: "/menu/:menuId",
+    element: <Custommer />
   },
   {
     path: "/private/",
@@ -66,7 +74,19 @@ export const routes = createBrowserRouter([
       {
         path: "waitress",
         element: <WaitressPage/>
+      },
+      {
+        path: "reservation",
+        element: <Reservation />
+      },
+      {
+        path: "confirmBook",
+        element: <ConfirmBook />
       }
     ],
   },
+  {
+    path: "*",
+    element: <NotFound/>
+  }
 ]);

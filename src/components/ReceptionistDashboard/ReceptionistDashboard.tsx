@@ -1,0 +1,5 @@
+export const ReceptionistDashboard = () => {
+    return(
+        <></>
+    )
+}
