@@ -19,7 +19,7 @@ export const receptionistDashboard = [
   {
     title: "Book",
     image: reservation,
-    url: "/private/reservation",
+    url: "/private/book",
   },
   {
     title: "Confirm Book",

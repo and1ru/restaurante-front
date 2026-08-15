@@ -8,10 +8,6 @@ export const HomePage = () => {
     navegar("/login");
   }
 
-  function handleRegister() {
-    navegar("/register");
-  }
-
   return (
     <>
       <header className="bg-gray-800 text-white p-4 shadow-md">
@@ -27,19 +23,11 @@ export const HomePage = () => {
             >
               Login
             </button>
-
-            <button
-              onClick={handleRegister}
-              className="border border-white hover:bg-white hover:text-black transition p-2 px-4 rounded-lg"
-            >
-              Register
-            </button>
           </div>
         </nav>
       </header>
 
       <main>
-        {/* HERO */}
         <section className="bg-gray-100 py-20">
           <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
@@ -55,13 +43,6 @@ export const HomePage = () => {
               </p>
 
               <div className="flex gap-4">
-                <button
-                  onClick={handleRegister}
-                  className="bg-orange-600 hover:bg-orange-700 transition text-white px-6 py-3 rounded-lg font-semibold"
-                >
-                  Comenzar ahora
-                </button>
-
                 <button
                   onClick={handleLogin}
                   className="border border-gray-800 hover:bg-gray-800 hover:text-white transition px-6 py-3 rounded-lg font-semibold"
