@@ -7,32 +7,64 @@ import recruitment from "../assets/images/recruitment.png";
 import metric from "../assets/images/metric.png";
 import friedRice from "../assets/images/fried-rice.png";
 
-export const dashboardActions = [
+export const rootDashboard = [
+  {
+    title: "Create a new restaurant",
+    image: restaurant,
+    url: "/private/create-restaurant",
+  },
+]
+
+export const receptionistDashboard = [
   {
     title: "Book",
     image: reservation,
     url: "/private/reservation",
   },
   {
-    title: "Create a new restaurant",
-    image: restaurant,
-    url: "/private/create-restaurant",
-  },
-  {
-    title: "Create a new sede",
-    image: headquarter,
-    url: "/private/create-sede",
-  },
-  {
-    title: "Waitress",
-    image: waitress,
-    url: "/private/waitress",
-  },
+    title: "Confirm Book",
+    image: "",
+    url: "/private/confirmBook"
+  }
+]
+
+export const chefDashboard = [
   {
     title: "Chef",
     image: chef,
     url: "/private/chef",
   },
+]
+
+export const waitressDashboard = [
+  {
+    title: "Waitress",
+    image: waitress,
+    url: "/private/waitress",
+  },
+]
+
+export const adminDashboard = [
+  {
+    title: "Manage employees",
+    image: recruitment,
+    url: "/private/manage-employee",
+  },
+  {
+    title: "Statistics",
+    image: metric,
+    url: "/private/stadistics",
+  },
+]
+
+export const ownerDashboard = [
+  {
+    title: "Create a new sede",
+    image: headquarter,
+    url: "/private/create-sede",
+  },
+
+
   {
     title: "Manage employees",
     image: recruitment,
@@ -48,4 +80,4 @@ export const dashboardActions = [
     image: friedRice,
     url: "/private/create-dish",
   },
-];
+]

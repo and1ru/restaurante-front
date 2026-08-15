@@ -1,7 +1,7 @@
-import { ownerDashboard } from "../../helper/dashboardsActions"
+import { rootDashboard } from "../../helper/dashboardsActions"
 import { ActionCard } from "../ActionCard/ActionCard"
 
-export const OwnerDashboard = () => {
+export const RootDashboard = () => {
     return(
         <>
         <section className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm mb-8">
@@ -18,7 +18,7 @@ export const OwnerDashboard = () => {
           </p>
         </section>
         <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-            {ownerDashboard.map((element) => (<ActionCard imagen={element.image} title={element.title} url={element.url}/>))}
+            {rootDashboard.map((element) => (<ActionCard imagen={element.image} title={element.title} url={element.url}/>))}
         </section>
         </>
 
