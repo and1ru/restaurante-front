@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { createRestaurantSchema, type createRestaurantType } from "../../schemas/create-restaurant";
+import { createRestaurantSchema, type createRestaurantType } from "../../schemas/createRestaurant";
 import { Input } from "../../components/Input/Input";
 
 export const CreateRestaurantPage = () => {

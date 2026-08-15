@@ -1,5 +1,5 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { createSedeSchema, type createSedeType } from "../../schemas/create-sede";
+import { createSedeSchema, type createSedeType } from "../../schemas/createBranch";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input/Input";
 import { style } from "../../helper/style";
