@@ -1,15 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { Dark } from "../Dark/Dark";
+import { ButtonLogOut } from "../ButtonLogOut/ButtonLogOut";
 
 export const Header = () => {
   const navigate = useNavigate();
 
   function handleBack() {
     navigate("/private/dashboard", { replace: true });
-  }
-
-  function goToLogin(){
-    navigate("/login", { replace: true });
   }
 
   return (
@@ -34,12 +31,7 @@ export const Header = () => {
         {/* Derecha */}
         <div className="flex items-center gap-4">
           <Dark />
-
-          <button
-          onClick={goToLogin}
-          className="px-4 py-2 rounded-lg bg-red-500 text-white font-medium hover:bg-red-600 transition">
-            Salir
-          </button>
+        <ButtonLogOut/>
         </div>
 
       </div>

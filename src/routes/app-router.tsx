@@ -24,10 +24,7 @@ export const routes = createBrowserRouter([
     path: "/login",
     element: <LoginPage />,
   },
-  {
-    path: "/private/dashboard",
-    element: <DashboardPage />,
-  },
+
   {
     path: "/menu/:menuId",
     element: <Custommer />
@@ -37,8 +34,12 @@ export const routes = createBrowserRouter([
     element: <Root />,
     children: [
       {
+        path: "dashboard",
+        element: <DashboardPage />,
+      },
+      {
         path: "book",
-        element: <BookPage/>
+        element: <BookPage />
       },
       {
         path: "create-restaurant",
@@ -67,7 +68,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "waitress",
-        element: <WaitressPage/>
+        element: <WaitressPage />
       },
       {
         path: "confirmBook",
@@ -77,6 +78,6 @@ export const routes = createBrowserRouter([
   },
   {
     path: "*",
-    element: <NotFound/>
+    element: <NotFound />
   }
 ]);

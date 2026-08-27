@@ -1,21 +1,21 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { createSedeSchema, type createSedeType } from "../../schemas/createBranch";
+import { createBranchSchema, type createBranchType } from "../../schemas/createBranch";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input/Input";
 import { style } from "../../helper/style";
 
 export const CreateBranch = () => {
-  const { control, handleSubmit, formState: { errors } } = useForm<createSedeType>({
+  const { control, handleSubmit, formState: { errors } } = useForm<createBranchType>({
     defaultValues: {
       address: "",
       city: "",
       country: ""
     },
     mode: "onBlur",
-    resolver: zodResolver(createSedeSchema)
+    resolver: zodResolver(createBranchSchema)
   })
 
-  const handleForm: SubmitHandler<createSedeType> = (data) => {
+  const handleForm: SubmitHandler<createBranchType> = (data) => {
     console.log(data)
   }
   return (

@@ -1,10 +1,14 @@
-import type { loginType } from "../../schemas/login"
-import { apiClient } from "../apiClient"
-import { useAction } from "../useAction"
+import { useMutation } from "@tanstack/react-query";
+import { post } from "../useActions";
+import { type loginType } from "../../schemas/login";
 
-export const useLogin = (body:loginType) => {
-    const request = () => apiClient.post("login", body)
-    const {data, error, loading, action} = useAction<loginType>(request)
-
-    return {data, error, loading, login:action}
+interface Response {
+  message: string;
+  success: boolean;
 }
+
+export const useLogin = () => {
+  return useMutation({
+    mutationFn: (body: loginType) => post<loginType, Response>("login", body),
+  });
+};
