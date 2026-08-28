@@ -13,19 +13,19 @@ export const DashboardPage = () => {
     case "ROOT":
       return <RootDashboard />
     
-    case "owner":
+    case "OWNER":
       return <OwnerDashboard />
 
-    case "admin":
+    case "ADMIN":
       return <AdminDashboard />
 
-    case "chef":
+    case "CHEF":
       return <ChefDashboard />
 
-    case "waitrees":
+    case "WAITRESS":
       return <WaitressDashboard />
 
-    case "receptionist":
+    case "RECEPTIONIST":
       return <ReceptionistDashboard />
   }
 };

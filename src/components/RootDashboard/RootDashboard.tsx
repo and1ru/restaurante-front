@@ -1,8 +1,10 @@
+import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { rootDashboard } from "../../helper/dashboardsActions"
 import { ActionCard } from "../ActionCard/ActionCard"
 import { HeaderDashboard } from "../HeaderDashboard/HeaderDashboard"
 
 export const RootDashboard = () => {
+  const { auth: {name}} = useAuthContext()
     return(
         <>
         <HeaderDashboard />
@@ -12,7 +14,7 @@ export const RootDashboard = () => {
           </p>
 
           <h2 className="text-3xl font-bold text-gray-800 mt-2">
-            Hola, Andrés 👋
+            Hola, {name} 👋
           </h2>
 
           <p className="text-gray-600 mt-1">

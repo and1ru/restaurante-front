@@ -1,11 +1,14 @@
+import { useMutation } from "@tanstack/react-query";
 import type { createRestaurantType } from "../../schemas/createRestaurant";
-import { apiClient } from "../apiClient";
-import { useAction } from "../useActions";
+import { post } from "../useActions";
 
-export const useCreateRestaurant = (body: createRestaurantType) => {
-  const request = () => apiClient.post("", body);
-  const { data, error, loading, action } =
-    useAction<createRestaurantType>(request);
+interface Response{
+  message:string;
+  success:boolean
+}
 
-  return { data, error, loading, login: action };
+export const useCreateRestaurant = () => {
+  return useMutation({
+    mutationFn:(body: createRestaurantType) => post<createRestaurantType, Response>("create-restaurant", body)
+  })
 };

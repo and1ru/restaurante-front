@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export const Root = () => {
   const { data, isLoading, isSuccess, error } = useAuth();
-  const { setAuth } = useAuthContext()
+  const { setAuth, auth } = useAuthContext()
   const navigate = useNavigate()
 
   // no pueden haber returns antes de un useEffect
@@ -18,6 +18,8 @@ export const Root = () => {
     }
   }, [isSuccess]);
 
+  console.log(auth)
+  
   if (error) return navigate("/login", {replace:true})
 
   if (isLoading) {

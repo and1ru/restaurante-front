@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { useLogOut } from "../../customHooks/useLogOut/useLogOut";
+import { useAuthContext } from "../../context/AuthContext/AuthContext";
 
 export const ButtonLogOut = () => {
     const navigate = useNavigate();
     const { mutateAsync } = useLogOut()
+    const { setAuth } = useAuthContext()
 
     function goToLogin() {
         navigate("/login", { replace: true });
         mutateAsync()
+        setAuth({role:"", name:""})
     }
 
     return (

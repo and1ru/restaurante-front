@@ -3,19 +3,26 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { createRestaurantSchema, type createRestaurantType } from "../../schemas/createRestaurant";
 import { Input } from "../../components/Input/Input";
 import { Header } from "../../components/Header/Header";
+import { useCreateRestaurant } from "../../customHooks/useCreateRestaurant/useCreateRestaurant";
 
 export const CreateRestaurantPage = () => {
+  const { mutate } = useCreateRestaurant()
   const { control, handleSubmit, formState: { errors } } = useForm<createRestaurantType>({
     defaultValues: {
       nameRestaurant: "",
+      confirmPassword: "",
+      email: "",
+      ownerName: "",
+      password: ""
     },
     mode: "onBlur",
     resolver: zodResolver(createRestaurantSchema),
   });
 
-  const handleForm: SubmitHandler<createRestaurantType> = (data) => {
-    console.log(data);
+  const handleForm: SubmitHandler<createRestaurantType> = (body) => {
+    mutate(body)
   };
+
   return (
     <>
     <Header />
