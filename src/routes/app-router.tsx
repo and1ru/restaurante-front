@@ -14,6 +14,7 @@ import { Root } from "../page/Root/Root";
 import { Custommer } from "../page/Custommer/Custommer";
 import { NotFound } from "../page/NotFound/NotFound";
 import { ConfirmBook } from "../page/ConfirmBook/ConfirmBook";
+import { Hire } from "../page/Hire/Hire";
 
 export const routes = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ export const routes = createBrowserRouter([
         path: "confirmBook",
         element: <ConfirmBook />
       },
+      {
+        path: "hire",
+        element: <Hire />
+      }
     ],
   },
   {

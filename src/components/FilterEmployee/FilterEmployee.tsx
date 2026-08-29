@@ -1,6 +1,8 @@
+import { OptionBranches } from "../OptionBranches/OptionBranches"
+
 export const FilterEmployee = () => {
     return (
-        <section className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+        <section className="px-10">
             <form className="grid gap-4 md:grid-cols-3">
                 <input
                     type="text"
@@ -10,6 +12,7 @@ export const FilterEmployee = () => {
 
                 <select className="rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-gray-900">
                     <option>All branches</option>
+                    <OptionBranches />
                 </select>
 
                 <select className="rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-gray-900">

@@ -16,7 +16,7 @@ export const Root = () => {
         role: data.result.role
       });
     }
-  }, [isSuccess]);
+  }, [isSuccess, data]);
 
   console.log(auth)
   

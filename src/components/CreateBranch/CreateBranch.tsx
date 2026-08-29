@@ -3,10 +3,14 @@ import { createBranchSchema, type createBranchType } from "../../schemas/createB
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input/Input";
 import { style } from "../../helper/style";
+import { useCreateBranch } from "../../customHooks/useCreateBranch/useCreateBranch";
 
 export const CreateBranch = () => {
+  const { mutate } = useCreateBranch()
   const { control, handleSubmit, formState: { errors } } = useForm<createBranchType>({
     defaultValues: {
+      name:"",
+      table: 1,
       address: "",
       city: "",
       country: ""
@@ -15,11 +19,14 @@ export const CreateBranch = () => {
     resolver: zodResolver(createBranchSchema)
   })
 
-  const handleForm: SubmitHandler<createBranchType> = (data) => {
-    console.log(data)
+  const handleForm: SubmitHandler<createBranchType> = (body) => {
+    console.log(body)
+    mutate(body)
   }
+
   return (
     <form onSubmit={handleSubmit(handleForm)} className={style.form}>
+      <Input control={control} label="Branch Name" name="name" type="text" error={errors.name}/>
       <Input control={control} label="Country" name="country" type="text" error={errors.country} />
       <Input control={control} label="City" name="city" type="text" error={errors.city} />
       <Input control={control} label="Address" name="address" type="text" error={errors.address} />

@@ -45,6 +45,11 @@ export const waitressDashboard = [
 ]
 
 export const adminDashboard = [
+    {
+    title:"Hire",
+    image: "",
+    url: "/private/hire"
+  },
   {
     title: "Manage employees",
     image: recruitment,
@@ -63,8 +68,11 @@ export const ownerDashboard = [
     image: headquarter,
     url: "/private/create-sede",
   },
-
-
+  {
+    title:"Hire",
+    image: "",
+    url: "/private/hire"
+  },
   {
     title: "Manage employees",
     image: recruitment,
