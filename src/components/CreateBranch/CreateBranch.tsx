@@ -20,7 +20,6 @@ export const CreateBranch = () => {
   })
 
   const handleForm: SubmitHandler<createBranchType> = (body) => {
-    console.log(body)
     mutate(body)
   }
 
@@ -30,7 +29,7 @@ export const CreateBranch = () => {
       <Input control={control} label="Country" name="country" type="text" error={errors.country} />
       <Input control={control} label="City" name="city" type="text" error={errors.city} />
       <Input control={control} label="Address" name="address" type="text" error={errors.address} />
-      <Input control={control} label="tables" name="table" type="number" error={errors.table} minimo={1} />
+      <Input control={control} label="tables" name="table" type="number" error={errors.table} />
       <button className={style.button}>Crear</button>
     </form>
   );

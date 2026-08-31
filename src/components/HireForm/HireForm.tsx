@@ -15,7 +15,6 @@ export const HireForm = () => {
   });
 
   const handleForm: SubmitHandler<loginType> = (data) => {
-    console.log(data);
   };
 
   return (

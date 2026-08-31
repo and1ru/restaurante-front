@@ -69,6 +69,11 @@ export const ownerDashboard = [
     url: "/private/create-sede",
   },
   {
+    title: "Create a new Category",
+    image: "",
+    url: "/private/create-category",
+  },
+  {
     title:"Hire",
     image: "",
     url: "/private/hire"

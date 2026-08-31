@@ -15,6 +15,7 @@ import { Custommer } from "../page/Custommer/Custommer";
 import { NotFound } from "../page/NotFound/NotFound";
 import { ConfirmBook } from "../page/ConfirmBook/ConfirmBook";
 import { Hire } from "../page/Hire/Hire";
+import { CreateCategory } from "../page/CreateCategory/CreateCategory";
 
 export const routes = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ export const routes = createBrowserRouter([
       {
         path: "hire",
         element: <Hire />
+      },
+      {
+        path: "create-category",
+        element: <CreateCategory />
       }
     ],
   },

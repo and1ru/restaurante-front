@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { CreateCategory } from "../CreateCategory/CreateCategory"
+import { OptionsCategories } from "../OptionsCategories/OptionsCategories";
 
 export const CreateDishForm = () => {
     const imagenRef = useRef<HTMLInputElement | null>(null);
@@ -32,11 +32,8 @@ export const CreateDishForm = () => {
                     <div className="flex gap-3">
                         <select className="flex-1 rounded-xl border border-gray-300 px-4 py-3 outline-none transition focus:border-gray-900">
                             <option>Select a category</option>
-                            <option>Burgers</option>
-                            <option>Drinks</option>
-                            <option>Desserts</option>
+                            <OptionsCategories />
                         </select>
-                        <CreateCategory />
                     </div>
                 </div>
                 <div>

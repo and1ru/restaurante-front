@@ -20,7 +20,6 @@ export const Hire = () => {
   });
 
   const handleForm: SubmitHandler<hireType> = (body) => {
-    console.log(body);
     mutate(body)
   };
 

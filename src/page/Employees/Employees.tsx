@@ -1,8 +1,11 @@
 import { EmployeeCard } from "../../components/EmployeeCard/EmployeeCard";
 import { FilterEmployee } from "../../components/FilterEmployee/FilterEmployee";
 import { Header } from "../../components/Header/Header";
+import { useGetEmployees } from "../../customHooks/useGetEmployees/useGetEmployees";
 
 export const ManageEmployeePage = () => {
+  const {data} = useGetEmployees()
+  console.log(data)
   return (
     <>
     <Header />
@@ -17,11 +20,7 @@ export const ManageEmployeePage = () => {
       </section>
       <FilterEmployee />
       <section className="px-10 pb-10 flex flex-col gap-4">
-        <EmployeeCard />
-        <EmployeeCard />
-        <EmployeeCard />
-        <EmployeeCard />
-        <EmployeeCard />
+        { data?.result.map((employee) => <EmployeeCard branchName={employee.Branch.name} name={employee.User.name} role={employee.User.role} />) }
       </section>
     </main>
 

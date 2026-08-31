@@ -4,8 +4,6 @@ import { reservationSchema, type reservationType } from "../../schemas/reservati
 import { Input } from "../../components/Input/Input";
 
 export const BookPage = () => {
-    const today = new Date().toISOString().split("T")[0];
-
     const {control,handleSubmit,formState: { errors }} = useForm<reservationType>({
         defaultValues: {
             day: new Date(),
@@ -18,7 +16,6 @@ export const BookPage = () => {
     });
 
     const handleForm: SubmitHandler<reservationType> = (data) => {
-        console.log(data);
     };
 
     return (
@@ -42,7 +39,6 @@ export const BookPage = () => {
                         name="day"
                         error={errors.day}
                         type="date"
-                        minimo={today}
                     />
 
                     <Input

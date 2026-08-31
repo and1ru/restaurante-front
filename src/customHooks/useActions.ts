@@ -6,7 +6,7 @@ export const post = async <TBody, TResponse>(url: string,body?: TBody): Promise<
 }
 
 export const get = async <TResponse>(url: string): Promise<TResponse> => {
-  const response = await apiClient.get<TResponse>(url)
+  const response = await apiClient.get<TResponse>(url, )
   return response.data
 }
 

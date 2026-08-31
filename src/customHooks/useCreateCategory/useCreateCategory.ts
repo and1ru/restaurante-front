@@ -4,6 +4,6 @@ import type { categoryType } from "../../schemas/category"
 
 export const useCreateCategory = () => {
     return useMutation({
-        mutationFn:(body:categoryType) => post("",body)
+        mutationFn:(body:categoryType) => post("create-category",body)
     })
 }
