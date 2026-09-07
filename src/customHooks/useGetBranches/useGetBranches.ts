@@ -15,7 +15,7 @@ interface Response {
 
 export const useGetBranches = () => {
     return useQuery({
-        queryKey:[],
+        queryKey:["branches"],
         queryFn: () => get<Response>("branches")
     })
 }

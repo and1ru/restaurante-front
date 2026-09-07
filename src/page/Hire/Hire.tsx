@@ -6,10 +6,15 @@ import { hireSchema, type hireType } from "../../schemas/hire";
 import { Select } from "../../components/Select/Select";
 import { OptionBranches } from "../../components/OptionBranches/OptionBranches";
 import { useHire } from "../../customHooks/useHire/useHire";
+import { useEffect, useState } from "react";
+import { SuccessMessage } from "../../components/SuccessMessage/SuccessMessage";
+import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const Hire = () => {
-  const { mutate } = useHire()
-  const { control, handleSubmit, formState: { errors } } = useForm<hireType>({
+  const { mutate, isSuccess, isError } = useHire()
+    const [succesOpen, setSuccesOpen] = useState(false)
+    const [errorOpen, setErrorOpen] = useState(false)
+  const { control, handleSubmit, formState: { errors }, reset } = useForm<hireType>({
     defaultValues: {
       name: "",
       email: "",
@@ -23,8 +28,24 @@ export const Hire = () => {
     mutate(body)
   };
 
+    useEffect(()=> {
+      if(isSuccess){
+        setSuccesOpen(true)
+        reset()
+      }
+      if(isError){
+        setErrorOpen(true)
+      }
+    },[isSuccess,isError])
+
   return (
     <>
+          <SuccessMessage open={succesOpen}>
+            se contrato el usuario
+          </SuccessMessage>
+          <ErrorMessage open={errorOpen}>
+            error al intetar contratar el usuario
+          </ErrorMessage>
       <Header />
       <main className="my-10 ">
         <section className="shadow-sm max-w-xl mx-auto p-10 rounded-lg">

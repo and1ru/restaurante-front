@@ -4,7 +4,6 @@ import { LoginPage } from "../page/Login/Login";
 import { DashboardPage } from "../page/DashBoard/Dashboard";
 import { BookPage } from "../page/Book/Book";
 import { CreateRestaurantPage } from "../page/CreateRestaurant/CreateRestaurant";
-import { CreateSedePage } from "../page/CreateBranch/CreateBranch";
 import { StadisticsPage } from "../page/Statistics/Statistics";
 import { ManageEmployeePage } from "../page/Employees/Employees";
 import { CreateDishPage } from "../page/CreateDish/CreateDish";
@@ -16,6 +15,7 @@ import { NotFound } from "../page/NotFound/NotFound";
 import { ConfirmBook } from "../page/ConfirmBook/ConfirmBook";
 import { Hire } from "../page/Hire/Hire";
 import { CreateCategory } from "../page/CreateCategory/CreateCategory";
+import { CreateBranch } from "../page/CreateBranch/CreateBranch";
 
 export const routes = createBrowserRouter([
   {
@@ -49,7 +49,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "create-sede",
-        element: <CreateSedePage />,
+        element: <CreateBranch />,
       },
       {
         path: "stadistics",

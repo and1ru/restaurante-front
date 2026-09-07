@@ -4,10 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../../components/Input/Input";
 import { Header } from "../../components/Header/Header";
 import { useCreateCategory } from "../../customHooks/useCreateCategory/useCreateCategory";
+import { useEffect, useState } from "react";
+import { SuccessMessage } from "../../components/SuccessMessage/SuccessMessage";
+import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const CreateCategory = () => {
-  const { mutate } = useCreateCategory()
-  const { control, handleSubmit, formState: { errors } } = useForm<categoryType>({
+  const { mutate, isError, isSuccess } = useCreateCategory()
+    const [succesOpen, setSuccesOpen] = useState(false)
+    const [errorOpen, setErrorOpen] = useState(false)
+  const { control, handleSubmit, formState: { errors }, reset } = useForm<categoryType>({
     defaultValues: {
       name: ""
     },
@@ -18,9 +23,25 @@ export const CreateCategory = () => {
   const handleForm: SubmitHandler<categoryType> = (body) => {
     mutate(body)
   }
-
+  
+  useEffect(()=> {
+    if(isSuccess){
+      setSuccesOpen(true)
+      reset()
+    }
+    if(isError){
+      setErrorOpen(true)
+    }
+  },[isSuccess,isError])
+  
   return (
     <>
+          <SuccessMessage open={succesOpen}>
+            se creo la nueva categoria
+          </SuccessMessage>
+          <ErrorMessage open={errorOpen}>
+            error al intetar crear la categoria
+          </ErrorMessage>
       <Header />
       <main className="p-10">
         <section className="mx-auto max-w-xl shadow-lg p-5 h-80">

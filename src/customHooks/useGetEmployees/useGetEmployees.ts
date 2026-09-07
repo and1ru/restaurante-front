@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { apiClient } from "../apiClient";
-import { useSearchParams } from "react-router-dom";
+import type { filterEmployeeType } from "../../schemas/filterEmployee";
 
 interface User {
     name:string
@@ -25,23 +25,16 @@ interface Response {
     result: Result[]
 }
 
-export const useGetEmployees = () => {
-    const [searchParams] = useSearchParams()
-    const role = searchParams.get("role")
-    const branch = searchParams.get("branch")
+export const useGetEmployees = (filters: filterEmployeeType) => {
+  return useQuery({
+    queryKey: ["employees", filters],
 
-    return useQuery({
-        queryFn: async () => {
-            const response = await apiClient.get<Response>("get-employees", {
-                params: {
-                    role,
-                    branch
-                }
-            })
+    queryFn: async () => {
+      const result = await apiClient.get<Response>("get-employees", {
+        params: filters,
+      })
 
-            return response.data
-
-        },
-        queryKey: [role, branch]
-    })
+      return result.data
+    },
+  })
 }

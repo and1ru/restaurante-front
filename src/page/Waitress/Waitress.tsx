@@ -1,17 +1,20 @@
 import { Cart } from "../../components/Cart/Cart";
 import { DishCard } from "../../components/DishCard/DishCard";
+import { Header } from "../../components/Header/Header";
 import { dishes } from "../../helper/dishes";
 
 export const WaitressPage = () => {
   return (
-    <div className="space-y-8 px-4 md:p-6">
-      <div>
+    <>
+    <Header />
+    <main className="space-y-8 px-4 md:p-6">
+      <section>
         <h1 className="text-3xl font-bold text-gray-900">Dishes</h1>
         <p className="mt-2 text-gray-500">
           Search and select dishes to create an order.
         </p>
-      </div>
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
+      </section>
+      <section className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
         <div className="lg:col-span-4 lg:sticky lg:top-6">
           <Cart />
         </div>
@@ -42,7 +45,9 @@ export const WaitressPage = () => {
           </section>
         </main>
 
-      </div>
-    </div>
+      </section>
+    </main>
+    </>
+    
   );
 };

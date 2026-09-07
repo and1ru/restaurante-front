@@ -6,6 +6,8 @@ import chef from "../assets/images/chef.png";
 import recruitment from "../assets/images/recruitment.png";
 import metric from "../assets/images/metric.png";
 import friedRice from "../assets/images/fried-rice.png";
+import hire from "../assets/images/hire.png";
+import category from "../assets/images/category.png";
 
 export const rootDashboard = [
   {
@@ -47,7 +49,7 @@ export const waitressDashboard = [
 export const adminDashboard = [
     {
     title:"Hire",
-    image: "",
+    image: hire,
     url: "/private/hire"
   },
   {
@@ -64,18 +66,18 @@ export const adminDashboard = [
 
 export const ownerDashboard = [
   {
-    title: "Create a new sede",
+    title: "New branch",
     image: headquarter,
     url: "/private/create-sede",
   },
   {
-    title: "Create a new Category",
-    image: "",
+    title: "New Category",
+    image: category,
     url: "/private/create-category",
   },
   {
     title:"Hire",
-    image: "",
+    image: hire,
     url: "/private/hire"
   },
   {
@@ -89,7 +91,7 @@ export const ownerDashboard = [
     url: "/private/stadistics",
   },
   {
-    title: "Create dish",
+    title: "New Dish",
     image: friedRice,
     url: "/private/create-dish",
   },

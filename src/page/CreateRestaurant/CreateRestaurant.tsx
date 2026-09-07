@@ -4,10 +4,13 @@ import { createRestaurantSchema, type createRestaurantType } from "../../schemas
 import { Input } from "../../components/Input/Input";
 import { Header } from "../../components/Header/Header";
 import { useCreateRestaurant } from "../../customHooks/useCreateRestaurant/useCreateRestaurant";
+import { useEffect, useState } from "react";
+import { SuccessMessage } from "../../components/SuccessMessage/SuccessMessage";
 
 export const CreateRestaurantPage = () => {
-  const { mutate } = useCreateRestaurant()
-  const { control, handleSubmit, formState: { errors } } = useForm<createRestaurantType>({
+  const { mutate, isSuccess } = useCreateRestaurant()
+  const [open, setOpen] = useState(false)
+  const { control, handleSubmit, formState: { errors }, reset } = useForm<createRestaurantType>({
     defaultValues: {
       nameRestaurant: "",
       confirmPassword: "",
@@ -23,18 +26,24 @@ export const CreateRestaurantPage = () => {
     mutate(body)
   };
 
+  useEffect(()=> {
+    if(isSuccess){
+      setOpen(true)
+      reset()
+    }
+  },[isSuccess])
+
   return (
     <>
+    <SuccessMessage open={open}>
+      se creo el restuarante
+    </SuccessMessage>
     <Header />
-    <main className="mt-10">
+    <main className="my-10">
       <section className="mx-auto max-w-lg rounded-2xl bg-white p-8 shadow-lg border border-gray-100">
         <h1 className="text-center text-3xl font-bold text-gray-900">
-          Crear restaurante
+          Create Restaurant
         </h1>
-
-        <p className="mt-2 text-center text-gray-500">
-          Ingresa la información para registrar un nuevo restaurante.
-        </p>
 
         <div className="mt-8">
           <form onSubmit={handleSubmit(handleForm)} className="flex flex-col gap-6">
@@ -44,7 +53,7 @@ export const CreateRestaurantPage = () => {
             <Input control={control} label="Password" name="password" type="password" error={errors.password} />
             <Input control={control} label="Confrim Password" name="confirmPassword" type="password" error={errors.confirmPassword} />
             <button className="w-full rounded-lg bg-black py-3 font-semibold text-white transition hover:bg-gray-800">
-              Crear restaurante
+              Create
             </button>
           </form>
         </div>
