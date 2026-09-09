@@ -12,11 +12,13 @@ import { useState } from "react";
 
 export const ManageEmployeePage = () => {
   const { auth: { role } } = useAuthContext()
-    const [filters, setFilters] = useState<filterEmployeeType>({
+
+  const [filters, setFilters] = useState<filterEmployeeType>({
     branch: "0",
     name: "",
     role: "",
   })
+
   const { control, handleSubmit } = useForm<filterEmployeeType>({
     defaultValues: {
       branch: "0",

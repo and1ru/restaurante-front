@@ -11,7 +11,7 @@ import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const CreateBranch = () => {
   const { mutate, isSuccess, isError } = useCreateBranch()
-  const [succesOpen, setSuccesOpen] = useState(false)
+  const [successOpen, setSuccessOpen] = useState(false)
   const [errorOpen, setErrorOpen] = useState(false)
   const { control, handleSubmit, formState: { errors }, reset } = useForm<createBranchType>({
     defaultValues: {
@@ -26,12 +26,14 @@ export const CreateBranch = () => {
   })
 
   const handleForm: SubmitHandler<createBranchType> = (body) => {
+    setSuccessOpen(false)
+    setErrorOpen(false)
     mutate(body)
   }
 
   useEffect(()=> {
     if(isSuccess){
-      setSuccesOpen(true)
+      setSuccessOpen(true)
       reset()
     }
     if(isError){
@@ -41,7 +43,7 @@ export const CreateBranch = () => {
 
   return (
     <>
-      <SuccessMessage open={succesOpen}>
+      <SuccessMessage open={successOpen}>
         se creo la nueva sede
       </SuccessMessage>
       <ErrorMessage open={errorOpen}>

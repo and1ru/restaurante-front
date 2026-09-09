@@ -6,10 +6,12 @@ import { Header } from "../../components/Header/Header";
 import { useCreateRestaurant } from "../../customHooks/useCreateRestaurant/useCreateRestaurant";
 import { useEffect, useState } from "react";
 import { SuccessMessage } from "../../components/SuccessMessage/SuccessMessage";
+import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const CreateRestaurantPage = () => {
-  const { mutate, isSuccess } = useCreateRestaurant()
-  const [open, setOpen] = useState(false)
+  const { mutate, isSuccess, isError } = useCreateRestaurant()
+  const [openSuccess, setOpenSuccess] = useState(false)
+  const [openError, setOpenError] = useState(false)
   const { control, handleSubmit, formState: { errors }, reset } = useForm<createRestaurantType>({
     defaultValues: {
       nameRestaurant: "",
@@ -23,19 +25,28 @@ export const CreateRestaurantPage = () => {
   });
 
   const handleForm: SubmitHandler<createRestaurantType> = (body) => {
+    setOpenError(false)
+    setOpenSuccess(false)
     mutate(body)
   };
 
   useEffect(()=> {
     if(isSuccess){
-      setOpen(true)
+      setOpenSuccess(true)
       reset()
     }
-  },[isSuccess])
+    if(isError){
+      setOpenError(true)
+    }
+    
+  },[isSuccess, isError])
 
   return (
     <>
-    <SuccessMessage open={open}>
+    <ErrorMessage open={openError}>
+      error al intentar crear el restaurante
+    </ErrorMessage>
+    <SuccessMessage open={openSuccess}>
       se creo el restuarante
     </SuccessMessage>
     <Header />

@@ -10,7 +10,7 @@ import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const CreateCategory = () => {
   const { mutate, isError, isSuccess } = useCreateCategory()
-    const [succesOpen, setSuccesOpen] = useState(false)
+    const [successOpen, setSuccessOpen] = useState(false)
     const [errorOpen, setErrorOpen] = useState(false)
   const { control, handleSubmit, formState: { errors }, reset } = useForm<categoryType>({
     defaultValues: {
@@ -21,12 +21,14 @@ export const CreateCategory = () => {
   })
 
   const handleForm: SubmitHandler<categoryType> = (body) => {
+    setSuccessOpen(false)
+    setErrorOpen(false)
     mutate(body)
   }
   
   useEffect(()=> {
     if(isSuccess){
-      setSuccesOpen(true)
+      setSuccessOpen(true)
       reset()
     }
     if(isError){
@@ -36,7 +38,7 @@ export const CreateCategory = () => {
   
   return (
     <>
-          <SuccessMessage open={succesOpen}>
+          <SuccessMessage open={successOpen}>
             se creo la nueva categoria
           </SuccessMessage>
           <ErrorMessage open={errorOpen}>

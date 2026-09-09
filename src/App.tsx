@@ -14,8 +14,8 @@
 // mensaje de que hizo el hire ✔
 // reiciniar el hire si es exitoso ✔
 // para manage employee agregar filtro por nombre ✔
-// todo lo que tenga que ver con las estadisticas
 // todo lo que tenga que ver con create a dish
+// todo lo que tenga que ver con las estadisticas
 
 // admin -> estefany
 // hire pero no puede decir cual branch

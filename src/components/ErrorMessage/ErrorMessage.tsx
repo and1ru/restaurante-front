@@ -19,10 +19,10 @@ export const ErrorMessage = ({open, children}:Props) => {
 
   return (
     <dialog ref={dialogRef} className="m-auto p-4 rounded-xl">
-        <div className="border-5 rounded-full border-red-600 w-30 h-30 flex justify-center items-center mx-auto">
+        <div className="border-5 rounded-full bg-red-50 border-red-600 w-30 h-30 flex justify-center items-center mx-auto">
             <div className="text-5xl">❌</div>
         </div>
-        <p className="my-5 font-medium text-xl">{children}</p>
+        <p className="my-5 font-medium text-xl text-red-500">{children}</p>
         
         <button onClick={handleClose} className="bg-red-500 w-full rounded-lg p-2 text-white hover:bg-red-600">Close</button>
     </dialog>

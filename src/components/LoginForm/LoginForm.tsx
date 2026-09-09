@@ -4,11 +4,13 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { loginSchema, type loginType } from "../../schemas/login";
 import { Input } from "../Input/Input";
 import { useLogin } from "../../customHooks/useLogin/useLogin";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 
 export const LoginForm = () => {
   const navegar = useNavigate();
-  const { mutate, isSuccess} = useLogin()
+  const [openError, setOpenError] = useState(false)
+  const { mutate, isSuccess, isError } = useLogin()
   const { control, handleSubmit, formState: { errors } } = useForm<loginType>({
     defaultValues: {
       email: "",
@@ -19,24 +21,33 @@ export const LoginForm = () => {
   });
 
   const handleForm: SubmitHandler<loginType> = (body) => {
+    setOpenError(false)
     mutate(body)
   };
 
-  useEffect(()=> {
-    if(isSuccess){
-    navegar("/private/dashboard", {replace:true})
-  }
-  },[isSuccess])
+  useEffect(() => {
+    if (isSuccess) {
+      navegar("/private/dashboard", { replace: true })
+    }
+    if (isError) {
+      setOpenError(true)
+    }
+  }, [isSuccess, isError])
 
   return (
-    <form onSubmit={handleSubmit(handleForm)} className="flex flex-col gap-5">
-      <div className="space-y-4">
-        <Input control={control} label="Correo Electrónico" name="email" type="text" error={errors.email}/>
-        <Input control={control} label="Contraseña" name="password" type="password" error={errors.password}/>
-      </div>
-      <button className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-md hover:shadow-indigo-100 transition-all duration-200 active:scale-[0.99] mt-2 cursor-pointer">
-        Iniciar Sesión
-      </button>
-    </form>
+    <>
+      <ErrorMessage open={openError}>
+        error al intentar iniciar sesion
+      </ErrorMessage>
+      <form onSubmit={handleSubmit(handleForm)} className="flex flex-col gap-5">
+        <div className="space-y-4">
+          <Input control={control} label="Correo Electrónico" name="email" type="text" error={errors.email} />
+          <Input control={control} label="Contraseña" name="password" type="password" error={errors.password} />
+        </div>
+        <button className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-md hover:shadow-indigo-100 transition-all duration-200 active:scale-[0.99] mt-2 cursor-pointer">
+          Iniciar Sesión
+        </button>
+      </form>
+    </>
   );
 };
