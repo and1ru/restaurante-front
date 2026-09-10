@@ -16,6 +16,7 @@ import { ConfirmBook } from "../page/ConfirmBook/ConfirmBook";
 import { Hire } from "../page/Hire/Hire";
 import { CreateCategory } from "../page/CreateCategory/CreateCategory";
 import { CreateBranch } from "../page/CreateBranch/CreateBranch";
+import { Dishes } from "../page/Dishes/Dishes";
 
 export const routes = createBrowserRouter([
   {
@@ -26,7 +27,6 @@ export const routes = createBrowserRouter([
     path: "/login",
     element: <LoginPage />,
   },
-
   {
     path: "/menu/:menuId",
     element: <Custommer />
@@ -83,6 +83,10 @@ export const routes = createBrowserRouter([
       {
         path: "create-category",
         element: <CreateCategory />
+      },
+      {
+        path: "dishes",
+        element:<Dishes />
       }
     ],
   },

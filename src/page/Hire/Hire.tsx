@@ -9,6 +9,7 @@ import { useHire } from "../../customHooks/useHire/useHire";
 import { useEffect, useState } from "react";
 import { SuccessMessage } from "../../components/SuccessMessage/SuccessMessage";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
+import { useAuthContext } from "../../context/AuthContext/AuthContext";
 
 // se pone en una constate para que cuando se reinicie vuelvan los valores en los select
 const defaultValues: hireType = {
@@ -20,6 +21,7 @@ const defaultValues: hireType = {
 };
 
 export const Hire = () => {
+  const { auth: { role } } = useAuthContext()
   const { mutate, isSuccess, isError } = useHire()
   const [successOpen, setSuccessOpen] = useState(false)
   const [errorOpen, setErrorOpen] = useState(false)
@@ -64,15 +66,19 @@ export const Hire = () => {
             <Input control={control} label="Password" name="password" type="password" error={errors.password} />
             <Select control={control} name="role" error={errors.role}>
               <option value="">Select Role</option>
-              <option value="ADMIN">Admin</option>
+              {role === "OWNER" && <option value="ADMIN">Admin</option>}
               <option value="WAITRESS">Waitress</option>
               <option value="RECEPTIONIST">receptionist</option>
               <option value="CHEF">Chef</option>
             </Select>
-            <Select control={control} name="branch" error={errors.branch}>
-              <option value="">Select Branch</option>
-              <OptionBranches />
-            </Select>
+            {
+              role === "OWNER" &&
+              <Select control={control} name="branch" error={errors.branch}>
+                <option value="">Select Branch</option>
+                <OptionBranches />
+              </Select>
+            }
+
             <button className="bg-gray-700 p-4 text-white font-bold rounded-lg">Enviar</button>
           </form>
         </section>

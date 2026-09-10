@@ -5,7 +5,7 @@ export const hireSchema = z.object({
     email: z.email("must be an email"),
     password: z.string().min(8,"must be at least 8 length"),
     role: z.enum(["ADMIN", "CASHIER", "WAITRESS", "CHEF","RECEPTIONIST",""], {message:"this field is required"}),
-    branch: z.string().min(1, "this field is required")
+    branch: z.string()
 })
 
 export type hireType = z.infer<typeof hireSchema>

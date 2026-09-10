@@ -1,33 +1,22 @@
-// root -> andres
-// poner una key en el dashboard ✔
-// mensaje de error para los inputs del create restaurant ✔
-// mostrar mensaje de cuando se cree la empresa y reiniciar el formulario ✔
-
 // owner -> luisa
-// poner una key en el dashboard ✔
-// mensaje de error para los inputs del create branch ✔
-// estilos para create branch ✔
-// arreglar el create branch ✔
-// en create category mostrar un mensaje de que se creo el category ✔
-// mensaje de error en el input ✔
-// mensaje de error para el input de hire ✔
-// mensaje de que hizo el hire ✔
-// reiciniar el hire si es exitoso ✔
-// para manage employee agregar filtro por nombre ✔
-// todo lo que tenga que ver con create a dish
 // todo lo que tenga que ver con las estadisticas
+// mejorar los estilos de manage employee
+// que solo pueda acceder al employee
+// crear una pagina para manejar un employee especifico
+// cuando busque a una persona no importa si el nombre esta completo
 
 // admin -> estefany
-// hire pero no puede decir cual branch
-// manage employees pero solo los de su branch
 // todo lo que tenga que ver con estadisticas pero solo de su branch
-// manage dishes
+// mejorar los estilos de manage employee
+// que solo pueda acceder al employee
+// crear una pagina para manejar un employee especifico
+// cuando busque a una persona no importa si el nombre esta completo
+// actualizar la pagian si agrega un branch_dish
 
 // waitress -> sebastian
 // obtener todos los dishes de la branch
 // confirmar order
 // poner un header a la pagina waitress
-// dashboard ✔
 
 // receptionist -> julian
 // book a reservation

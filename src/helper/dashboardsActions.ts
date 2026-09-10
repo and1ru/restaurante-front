@@ -62,6 +62,11 @@ export const adminDashboard = [
     image: metric,
     url: "/private/stadistics",
   },
+  {
+    title: "Dishes",
+    image: "",
+    url: "/private/dishes"
+  }
 ]
 
 export const ownerDashboard = [
@@ -95,4 +100,9 @@ export const ownerDashboard = [
     image: friedRice,
     url: "/private/create-dish",
   },
+    {
+    title: "Dishes",
+    image: "",
+    url: "/private/dishes"
+  }
 ]

@@ -15,6 +15,6 @@ interface Response {
 export const useGetCategories = () => {
     return useQuery({
         queryFn: () => get<Response>("categories"),
-        queryKey:[]
+        queryKey:["categories"]
     })
 }
