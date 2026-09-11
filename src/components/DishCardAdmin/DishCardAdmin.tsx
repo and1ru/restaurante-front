@@ -15,7 +15,7 @@ interface Props {
     branchDishId: number | null
 }
 
-export const DishCard = ({ image, name, inBranch, id, price, branchDishId }: Props) => {
+export const DishCardAmin = ({ image, name, inBranch, id, price, branchDishId }: Props) => {
     const { mutate: createDish } = useCreateBranchDish()
     const { mutate: updateDish } = useUpdateBranchDish()
     const dialogRef = useRef<HTMLDialogElement | null>(null)

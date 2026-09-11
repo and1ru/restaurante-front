@@ -44,9 +44,11 @@ export const ManageEmployeePage = () => {
             Manage Employees
           </h2>
         </section>
+
+        {/* filtros */}
         <section className="px-10 my-5">
-          <form className="flex gap-10" onSubmit={handleSubmit(handleForm)}>
-            <Input control={control} label="" name="name" type="text" />
+          <form className="grid grid-cols-5 gap-5" onSubmit={handleSubmit(handleForm)}>
+            <Input control={control} label="" name="name" type="text"  />
 
             {role === "OWNER" &&
               <Select control={control} name="branch">
@@ -63,7 +65,7 @@ export const ManageEmployeePage = () => {
               <option value="RECEPTIONIST">receptionist</option>
               <option value="CHEF">Chef</option>
             </Select>
-            <button className="bg-blue-400 p-2 w-30 rounded-lg">filtrar</button>
+            <button className="bg-blue-400 p-2 rounded-lg">filtrar</button>
           </form>
         </section>
         <section className="px-10 pb-10 flex flex-col gap-4">

@@ -5,9 +5,6 @@ interface result {
     id: number;
     name: string;
     image_url: string;
-    is_in_branch:boolean
-    price:number
-    branchDishId:number
 }
 
 interface Response {
@@ -16,9 +13,9 @@ interface Response {
     result: result[]
 }
 
-export const useGetDishes = () => {
+export const useDishesOwner = () => {
     return useQuery({
-        queryKey:["dishes"],
-        queryFn: () => get<Response>("dishes")
+        queryKey:["owner-dishes"],
+        queryFn: () => get<Response>("dishes/owner")
     })
 }

@@ -1,16 +1,18 @@
 import { Cart } from "../../components/Cart/Cart";
-import { DishCard } from "../../components/DishCard/DishCard";
+import { DishCardWaitress } from "../../components/DishCardWaitress/DishCardWaitress";
 import { Header } from "../../components/Header/Header";
-import { dishes } from "../../helper/dishes";
+import { useWaitressDishes } from "../../customHooks/useDishesWaitress/useDishesWaitress";
 
 export const WaitressPage = () => {
+  const { data } = useWaitressDishes()
+  console.log(data)
   return (
     <>
     <Header />
     <main className="space-y-8 px-4 md:p-6">
       <section>
-        <h1 className="text-3xl font-bold text-gray-900">Dishes</h1>
-        <p className="mt-2 text-gray-500">
+        <h2 className="text-3xl font-bold text-gray-900 text-center">Dishes</h2>
+        <p className="mt-2 text-gray-500 text-center">
           Search and select dishes to create an order.
         </p>
       </section>
@@ -19,6 +21,7 @@ export const WaitressPage = () => {
           <Cart />
         </div>
         <main className="space-y-6 lg:col-span-8">
+
           {/* Buscador */}
           <section className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
             <form className="flex flex-col gap-4 sm:flex-row">
@@ -27,24 +30,24 @@ export const WaitressPage = () => {
                 type="search"
                 placeholder="Search dishes..."
               />
-
               <select className="rounded-lg border border-gray-300 px-4 py-3 outline-none transition focus:border-black">
                 <option>All categories</option>
               </select>
             </form>
           </section>
+
+          {/* dishes */}
           <section className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {dishes.map((dish) => (
-              <DishCard
-                key={dish.id}
-                image={dish.image}
-                name={dish.name}
-                price={dish.price}
-              />
-            ))}
+            {data?.result.map((dish) => 
+              <DishCardWaitress 
+                id={dish.id} 
+                image={dish.image_url} 
+                name={dish.name} 
+                price={dish.price} 
+                key={dish.id} />
+            )}
           </section>
         </main>
-
       </section>
     </main>
     </>

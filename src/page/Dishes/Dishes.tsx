@@ -1,10 +1,10 @@
-import { DishCard } from "../../components/DishCard/DishCard";
+import { DishesAdmin } from "../../components/DishesAdmin/DishesAdmin";
+import { DishesOwner } from "../../components/DishesOwner/DishesOwner";
 import { Header } from "../../components/Header/Header";
-import { useGetDishes } from "../../customHooks/useGetDishes/useGetDishes";
+import { useAuthContext } from "../../context/AuthContext/AuthContext";
 
 export const Dishes = () => {
-    const { data } = useGetDishes()
-    console.log(data)
+    const { auth: {role}} = useAuthContext()
   return (
     <>
         <Header />
@@ -13,9 +13,8 @@ export const Dishes = () => {
                 <h2 className="text-center text-2xl font-bold">Dishes</h2>
             </section>
             <section className="flex gap-5 flex-wrap">
-                { data?.result.map((dish) => 
-                    <DishCard image={dish.image_url} name={dish.name} key={dish.id} inBranch={dish.is_in_branch} id={dish.id} price={dish.price} branchDishId={dish.branchDishId}/>
-                )}
+                { role === "OWNER" && <DishesOwner/> }
+                { role === "ADMIN" && <DishesAdmin />}
             </section>
         </main>    
     </>

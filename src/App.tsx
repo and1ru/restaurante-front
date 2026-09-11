@@ -14,9 +14,9 @@
 // actualizar la pagian si agrega un branch_dish
 
 // waitress -> sebastian
-// obtener todos los dishes de la branch
 // confirmar order
-// poner un header a la pagina waitress
+// poner dishes en cart
+// poner table
 
 // receptionist -> julian
 // book a reservation
