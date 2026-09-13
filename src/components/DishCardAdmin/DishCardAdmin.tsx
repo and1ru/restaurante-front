@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { branchDishSchema, type branchDishType } from "../../schemas/branchDish";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,9 +16,12 @@ interface Props {
 }
 
 export const DishCardAmin = ({ image, name, inBranch, id, price, branchDishId }: Props) => {
-    const { mutate: createDish } = useCreateBranchDish()
+
+    const { mutate: createDish, error, isError } = useCreateBranchDish()
     const { mutate: updateDish } = useUpdateBranchDish()
+
     const dialogRef = useRef<HTMLDialogElement | null>(null)
+
     const { control, formState: { errors }, handleSubmit } = useForm<branchDishType>({
         defaultValues: {
             price: "0"
@@ -36,10 +39,14 @@ export const DishCardAmin = ({ image, name, inBranch, id, price, branchDishId }:
     }
 
     const handleForm: SubmitHandler<branchDishType> = (data) => {
+        console.log(data.price)
+        console.log(id)
+        console.log(name)
         if (!inBranch) {
             createDish({
                 price: Number(data.price),
-                id
+                id,
+                name
             });
         }
 
@@ -50,6 +57,12 @@ export const DishCardAmin = ({ image, name, inBranch, id, price, branchDishId }:
             });
         }
     }
+
+    useEffect(()=> {
+        if(isError){
+            console.log(error)
+        }
+    },[isError])
 
     return (
         <>

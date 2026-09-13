@@ -9,6 +9,7 @@ interface Props {
 
 export const DishCardWaitress = ({ image, name, price, id }: Props) => {
     const add = useDishCart((state) => state.add)
+    
     const handleClick = () => {
         add({
             id,
@@ -18,6 +19,7 @@ export const DishCardWaitress = ({ image, name, price, id }: Props) => {
             quantity: 1
         })
     }
+
     return (
         <div className={`overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl`}>
             <img

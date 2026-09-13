@@ -4,6 +4,7 @@ import { post } from "../useActions"
 interface Body {
     id:number;
     price:number
+    name:string
 }
 
 export const useCreateBranchDish = () => {
