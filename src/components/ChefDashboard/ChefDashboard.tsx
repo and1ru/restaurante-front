@@ -20,7 +20,7 @@ export const ChefDashboard = () => {
           </p>
         </section>
         <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 p-4">
-            {chefDashboard.map((element) => (<ActionCard imagen={element.image} title={element.title} url={element.url}/>))}
+            {chefDashboard.map((element) => (<ActionCard key={element.url} imagen={element.image} title={element.title} url={element.url}/>))}
         </section>
         </>
 

@@ -44,6 +44,11 @@ export const waitressDashboard = [
     image: waitress,
     url: "/private/waitress",
   },
+  {
+    title: "Orders",
+    image: "",
+    url: "/private/orders"
+  }
 ]
 
 export const adminDashboard = [

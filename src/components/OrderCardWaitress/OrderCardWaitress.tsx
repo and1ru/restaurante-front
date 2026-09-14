@@ -1,28 +1,22 @@
-import { useState } from "react";
+import { socket } from "../../customHooks/socket";
 
 interface Dishes{
   name:string;
   quantity:number
-  branch_dish_id:number
+  id:number
 }
 
 interface Props {
   estado: string;
   dishes: Dishes[]
+  id: number
 }
 
 
-export const OrderCard = ({estado,dishes}: Props) => {
-  const [estadoPedido, setEstadoPedido] = useState(estado);
+export const OrderCardWaitress = ({estado, dishes, id}: Props) => {
 
   function handleClick() {
-    if (estadoPedido === "pending") {
-      setEstadoPedido("cooking");
-    }
-
-    if (estadoPedido === "cooking") {
-      setEstadoPedido("ready");
-    }
+    socket.emit("update-state", {state:estado, id})
   }
 
   return (
@@ -31,7 +25,7 @@ export const OrderCard = ({estado,dishes}: Props) => {
         <span
           className={`rounded-full border px-3 py-1 text-sm font-medium`}
         >
-          {estadoPedido}
+          {estado}
         </span>
       </div>
 
@@ -41,18 +35,16 @@ export const OrderCard = ({estado,dishes}: Props) => {
         </h3>
 
         <ul className="space-y-2 text-gray-700">
-          { dishes.map( dish => <li key={dish.branch_dish_id}>{dish.quantity} {dish.name}</li>)}
+          { dishes.map( dish => <li key={dish.id}>{dish.quantity} || {dish.name}</li>)}
         </ul>
       </div>
 
 
         <button
           onClick={handleClick}
-          className={`mt-6 w-full rounded-xl py-3 font-medium transition `}
+          className={`mt-6 w-full rounded-xl py-3 font-medium transition text-white bg-gray-900`}
         >
-          {estadoPedido === "PENDDING"
-            ? "Start cooking"
-            : "Mark as ready"}
+          mark as done
         </button>
 
     </article>
