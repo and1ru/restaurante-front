@@ -27,12 +27,17 @@ export const Orders = () => {
         socket.on("new-order-waitress", (data) => {
           setOrders((orders) => [...orders, data])
         })
+
+        socket.on("order-waitress-updated", (data) => {
+          setOrders((orders) => orders.filter((order) => order.id !== data.orderId))
+        })
     
         socket.emit("get-orders-waitress")
     
         return () => {
           socket.off("orders-waitress")
           socket.off("new-order-waitress")
+          socket.off("order-waitress-updated")
         }
       }, [])
   return (

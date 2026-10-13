@@ -13,20 +13,12 @@
 // cuando busque a una persona no importa si el nombre esta completo
 // actualizar la pagian si agrega un branch_dish
 
-// waitress -> sebastian
-// confirmar order
-// poner dishes en cart
-// poner table
-
 // receptionist -> julian
 // book a reservation
 // header para la pagina book
 // todo confirm book
 
-// chef -> jhonny
-// obtener las orders
-// cambiar estado de order
-// header para la pagina chef
+
 
 import { AuthProvider } from "./context/AuthContext/AuthProvider";
 import { QueryProvider } from "./customHooks/QuertClient/QueryClientProvider";
