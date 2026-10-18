@@ -6,10 +6,10 @@ export const LoginPage = () => {
       <section className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/80 border border-slate-100/80 flex flex-col">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
-            ¡Bienvenido!
+            ¡Welcome!
           </h1>
           <p className="text-sm text-slate-500 mt-2">
-            Ingresa tus credenciales para acceder
+            Enter your credentials to access.
           </p>
         </div>
         <LoginForm />

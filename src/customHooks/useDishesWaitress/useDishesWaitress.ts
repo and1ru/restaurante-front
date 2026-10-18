@@ -4,7 +4,7 @@ import { get } from "../useActions"
 interface result {
     id: number;
     name: string;
-    image_url: string;
+    image: string;
     price:number
 }
 
@@ -17,6 +17,6 @@ interface Response {
 export const useWaitressDishes = () => {
     return useQuery({
         queryKey:["waitress-dishes"],
-        queryFn: () => get<Response>("dishes/waitress")
+        queryFn: () => get<Response>("waitress-dishes")
     })
 }

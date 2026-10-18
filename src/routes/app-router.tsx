@@ -18,6 +18,7 @@ import { CreateCategory } from "../page/CreateCategory/CreateCategory";
 import { CreateBranch } from "../page/CreateBranch/CreateBranch";
 import { Dishes } from "../page/Dishes/Dishes";
 import { Orders } from "../page/Orders/Orders";
+import { Employee } from "../page/Employee/Employee";
 
 export const routes = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ export const routes = createBrowserRouter([
       {
         path: "orders",
         element: <Orders />
+      },
+      {
+        path: "employee/:employeeId",
+        element: <Employee/>
       }
     ],
   },

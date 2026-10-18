@@ -19,6 +19,6 @@ interface Response {
 export const useAdminDishes = () => {
     return useQuery({
         queryKey:["admin-dishes"],
-        queryFn: () => get<Response>("dishes/admin")
+        queryFn: () => get<Response>("admin-dishes")
     })
 }

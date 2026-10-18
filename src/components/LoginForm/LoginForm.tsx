@@ -37,15 +37,16 @@ export const LoginForm = () => {
   return (
     <>
       <ErrorMessage open={openError}>
-        error al intentar iniciar sesion
+        <p>Something went wrong trying to login</p>
+        
       </ErrorMessage>
       <form onSubmit={handleSubmit(handleForm)} className="flex flex-col gap-5">
         <div className="space-y-4">
-          <Input control={control} label="Correo Electrónico" name="email" type="text" error={errors.email} />
-          <Input control={control} label="Contraseña" name="password" type="password" error={errors.password} />
+          <Input control={control} label="Email" name="email" type="text" error={errors.email} />
+          <Input control={control} label="Password" name="password" type="password" error={errors.password} />
         </div>
         <button className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-md hover:shadow-indigo-100 transition-all duration-200 active:scale-[0.99] mt-2 cursor-pointer">
-          Iniciar Sesión
+          Login
         </button>
       </form>
     </>

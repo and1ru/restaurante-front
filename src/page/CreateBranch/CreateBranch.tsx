@@ -44,10 +44,11 @@ export const CreateBranch = () => {
   return (
     <>
       <SuccessMessage open={successOpen}>
-        se creo la nueva sede
+        <p>Branch was created successfully</p>
       </SuccessMessage>
       <ErrorMessage open={errorOpen}>
-        error al intetar crear la sede
+        <p>¡ops! Something went wrong trying to create the new branch</p>
+        
       </ErrorMessage>
       <Header />
       <main className="my-10 mx-auto max-w-2xl rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
@@ -61,7 +62,7 @@ export const CreateBranch = () => {
             <Input control={control} label="City" name="city" type="text" error={errors.city} />
             <Input control={control} label="Address" name="address" type="text" error={errors.address} />
             <Input control={control} label="tables" name="table" type="number" error={errors.table} />
-            <button className={style.button}>Crear</button>
+            <button className={style.button}>Create</button>
           </form>
         </section>
       </main>

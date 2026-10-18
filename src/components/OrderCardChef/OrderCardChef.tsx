@@ -12,11 +12,11 @@ interface Props {
   id: number
 }
 
-
 export const OrderCardChef = ({estado, dishes, id}: Props) => {
 
   function handleClick() {
-    socket.emit("update-state", {state:estado, id})
+    console.log("clickeado")
+    socket.emit("update-state-chef", {state:estado, id})
   }
 
   return (
@@ -24,7 +24,7 @@ export const OrderCardChef = ({estado, dishes, id}: Props) => {
       <div className="mt-4">
         <span
           className={`rounded-full border px-3 py-1 text-sm font-medium ${
-            estado === "PENDDING" ? "text-red-600 " : 
+            estado === "PENDING" ? "text-red-600 " : 
             estado === "COOKING" ? "text-yellow-500" : "" }`}
         >
           {estado}
@@ -45,10 +45,10 @@ export const OrderCardChef = ({estado, dishes, id}: Props) => {
         <button
           onClick={handleClick}
           className={`mt-6 w-full rounded-xl py-3 font-medium transition text-white ${
-            estado === "PENDDING" ? "bg-red-600" : 
+            estado === "PENDING" ? "bg-red-600" : 
             estado === "COOKING" ? "bg-yellow-500" : ""}`}
         >
-          {estado === "PENDDING"
+          {estado === "PENDING"
             ? "Start cooking"
             : "Mark as ready"}
         </button>

@@ -2,21 +2,11 @@ import { useQuery } from "@tanstack/react-query"
 import { apiClient } from "../apiClient";
 import type { filterEmployeeType } from "../../schemas/filterEmployee";
 
-interface User {
-    name:string
-    role:string
-}
-
-interface Branch {
-    name: string;
-};
-
 interface Result {
     id: number,
-    userId: number,
-    branchId: number,
-    User: User
-    Branch: Branch
+    name: string,
+    role: string,
+    Branch: { name: string, id:number }
 }
 
 interface Response {
@@ -30,9 +20,7 @@ export const useGetEmployees = (filters: filterEmployeeType) => {
     queryKey: ["employees", filters],
 
     queryFn: async () => {
-      const result = await apiClient.get<Response>("get-employees", {
-        params: filters,
-      })
+      const result = await apiClient.get<Response>("employees", { params:filters })
 
       return result.data
     },

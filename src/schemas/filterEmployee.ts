@@ -1,9 +1,9 @@
 import z from 'zod'
 
 export const filterEmployee = z.object({
-    name: z.string(),
-    role: z.enum(["ADMIN", "CASHIER", "WAITRESS", "CHEF","RECEPTIONIST", ""]),
-    branch: z.string(),
+    employeeName: z.string(),
+    employeeBranchId: z.string(),
+    employeeRole: z.enum(["ADMIN", "CASHIER", "CHEF", "RECEPTIONIST", "WAITRESS", ""])
 })
 
 export type filterEmployeeType = z.infer<typeof filterEmployee>

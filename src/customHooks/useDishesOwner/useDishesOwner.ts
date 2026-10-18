@@ -16,6 +16,6 @@ interface Response {
 export const useDishesOwner = () => {
     return useQuery({
         queryKey:["owner-dishes"],
-        queryFn: () => get<Response>("dishes/owner")
+        queryFn: () => get<Response>("owner-dishes")
     })
 }

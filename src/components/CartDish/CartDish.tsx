@@ -4,11 +4,10 @@ interface Props {
   image: string;
   name: string;
   price: number;
-  id: number,
-  quantity:number
+  id: number
 }
 
-export const CartDish = ({ image, name, price, id, quantity }: Props) => {
+export const CartDish = ({ image, name, price, id }: Props) => {
   const remove = useDishCart((state) => state.remove)
   const updateQuantity = useDishCart((state) => state.updateQuantity)
   const dish = useDishCart((state) => state.dishes).find((item) => item.id === id )!
@@ -19,7 +18,6 @@ export const CartDish = ({ image, name, price, id, quantity }: Props) => {
 
   const handleQuantity = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value)
-    if(value<1) return
     updateQuantity(id, value)
   }
 
@@ -40,10 +38,8 @@ export const CartDish = ({ image, name, price, id, quantity }: Props) => {
       </div>
       <input
         type="number"
-        min="1"
         onChange={handleQuantity}
         value={dish.quantity}
-        defaultValue={quantity}
         className="w-14 rounded-md border border-gray-300 px-2 py-1 text-center text-sm outline-none transition focus:border-black"
       />
     </div>

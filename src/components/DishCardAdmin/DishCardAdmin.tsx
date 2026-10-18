@@ -16,7 +16,6 @@ interface Props {
 }
 
 export const DishCardAmin = ({ image, name, inBranch, id, price, branchDishId }: Props) => {
-
     const { mutate: createDish, error, isError } = useCreateBranchDish()
     const { mutate: updateDish } = useUpdateBranchDish()
 
@@ -39,14 +38,10 @@ export const DishCardAmin = ({ image, name, inBranch, id, price, branchDishId }:
     }
 
     const handleForm: SubmitHandler<branchDishType> = (data) => {
-        console.log(data.price)
-        console.log(id)
-        console.log(name)
         if (!inBranch) {
             createDish({
                 price: Number(data.price),
-                id,
-                name
+                dishId: id,
             });
         }
 

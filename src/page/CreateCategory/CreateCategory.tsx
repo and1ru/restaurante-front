@@ -10,8 +10,8 @@ import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const CreateCategory = () => {
   const { mutate, isError, isSuccess } = useCreateCategory()
-    const [successOpen, setSuccessOpen] = useState(false)
-    const [errorOpen, setErrorOpen] = useState(false)
+  const [successOpen, setSuccessOpen] = useState(false)
+  const [errorOpen, setErrorOpen] = useState(false)
   const { control, handleSubmit, formState: { errors }, reset } = useForm<categoryType>({
     defaultValues: {
       name: ""
@@ -25,28 +25,29 @@ export const CreateCategory = () => {
     setErrorOpen(false)
     mutate(body)
   }
-  
-  useEffect(()=> {
-    if(isSuccess){
+
+  useEffect(() => {
+    if (isSuccess) {
       setSuccessOpen(true)
       reset()
     }
-    if(isError){
+    if (isError) {
       setErrorOpen(true)
     }
-  },[isSuccess,isError])
-  
+  }, [isSuccess, isError])
+
   return (
     <>
-          <SuccessMessage open={successOpen}>
-            se creo la nueva categoria
-          </SuccessMessage>
-          <ErrorMessage open={errorOpen}>
-            error al intetar crear la categoria
-          </ErrorMessage>
+      <SuccessMessage open={successOpen}>
+        <p>Category was created successfully</p>
+      </SuccessMessage>
+      <ErrorMessage open={errorOpen}>
+        <p>¡ops! Something went wrong trying to create the category</p>
+        
+      </ErrorMessage>
       <Header />
-      <main className="p-10">
-        <section className="mx-auto max-w-xl shadow-lg p-5 h-80">
+      <main className="pt-20">
+        <section className="mx-auto max-w-xl shadow-lg p-5 h-66">
           <h2 className="text-center text-xl font-bold text-gray-900">New Category</h2>
           <form onSubmit={handleSubmit(handleForm)} className="flex flex-col gap-5 mt-10">
             <Input control={control} label="Category Name" name="name" type="text" error={errors.name} />

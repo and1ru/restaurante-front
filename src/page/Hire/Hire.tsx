@@ -16,8 +16,9 @@ const defaultValues: hireType = {
   name: "",
   email: "",
   password: "",
-  role: "",
-  branch: ""
+  role: "ADMIN",
+  branch: 0,
+  salary: 1
 };
 
 export const Hire = () => {
@@ -51,10 +52,10 @@ export const Hire = () => {
   return (
     <>
       <SuccessMessage open={successOpen}>
-        se contrato el usuario
+        <p>Employee was hired successfully</p>
       </SuccessMessage>
       <ErrorMessage open={errorOpen}>
-        error al intetar contratar el usuario
+        <p>¡Ops! Something went wrong trying to hire an employee</p>
       </ErrorMessage>
       <Header />
       <main className="my-10 ">
@@ -66,20 +67,20 @@ export const Hire = () => {
             <Input control={control} label="Password" name="password" type="password" error={errors.password} />
             <Select control={control} name="role" error={errors.role}>
               <option value="">Select Role</option>
-              {role === "OWNER" && <option value="ADMIN">Admin</option>}
+              { role === "OWNER" && <option value="ADMIN">Admin</option>}
               <option value="WAITRESS">Waitress</option>
-              <option value="RECEPTIONIST">receptionist</option>
+              <option value="RECEPTIONIST">Receptionist</option>
               <option value="CHEF">Chef</option>
             </Select>
             {
               role === "OWNER" &&
               <Select control={control} name="branch" error={errors.branch}>
-                <option value="">Select Branch</option>
+                <option value={0}>Select Branch</option>
                 <OptionBranches />
               </Select>
             }
-
-            <button className="bg-gray-700 p-4 text-white font-bold rounded-lg">Enviar</button>
+            <Input control={control} name="salary" label="Salary" type="number" error={errors.salary} />
+            <button className="bg-gray-700 p-4 text-white font-bold rounded-lg">Hire</button>
           </form>
         </section>
       </main>

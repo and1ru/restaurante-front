@@ -2,14 +2,31 @@ import { useDishCart } from "../../context/WaitressCart/WaitressCart.store";
 import { useCreateOrder } from "../../customHooks/useCreateOrder/useCreateOrder";
 import { CartDish } from "../CartDish/CartDish";
 
+interface newOrder {
+  branchDishId: number;
+  quantity: number;
+}
+
 export const Cart = () => {
   const { mutate } = useCreateOrder()
+
   const clear = useDishCart((state) => state.clear)
   const dishes = useDishCart((state) => state.dishes)
   const total = dishes.reduce((prev, current) => prev + Number(current.price) * Number(current.quantity), 0)
 
   const handleClick = () => {
-    mutate(dishes)
+    let arr: newOrder[] = []
+
+    for (const element of dishes) {
+      const dish = {
+        branchDishId: element.id,
+        quantity: element.quantity
+      }
+
+      arr.push(dish)
+    }
+
+    mutate(arr)
     clear()
   }
 
@@ -18,7 +35,11 @@ export const Cart = () => {
       <h2 className="text-xl font-bold text-gray-900 border-b pb-3">Order Summary</h2>
 
       <ul className="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
-        {dishes.map((dish) => <li><CartDish id={dish.id} image={dish.image} name={dish.name} price={dish.price} quantity={1} /></li>)}
+        {dishes.map((dish) => (
+          <li>
+            <CartDish id={dish.id} image={dish.image} name={dish.name} price={dish.price}/>
+          </li>
+        ))}
       </ul>
 
       <div className="border-t pt-4 space-y-4">

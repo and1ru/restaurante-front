@@ -1,9 +1,19 @@
+import { useNavigate } from "react-router-dom";
+
 interface Props{
+  id: number;
   name:string;
   role:string;
   branchName:string;
 }
-export const EmployeeCard = ({name, role, branchName}:Props) => {
+
+export const EmployeeCard = ({id, name, role, branchName}:Props) => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate(`/private/employee/${id}`, { replace:true })
+  }
+
   return (
     <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
@@ -19,15 +29,10 @@ export const EmployeeCard = ({name, role, branchName}:Props) => {
 
         <div className="flex flex-col gap-3 sm:flex-row">
           <button
-            className="rounded-xl border border-gray-300 px-5 py-2.5 font-medium text-gray-700 transition hover:bg-gray-100"
+          onClick={ handleClick }
+            className="rounded-xl border border-blue-200 bg-blue-50 px-5 py-2.5 font-medium text-blue-600 transition hover:bg-blue-100"
           >
-            Change Role
-          </button>
-
-          <button
-            className="rounded-xl border border-red-200 bg-red-50 px-5 py-2.5 font-medium text-red-600 transition hover:bg-red-100"
-          >
-            Fire Employee
+            Edit Employee
           </button>
         </div>
       </div>

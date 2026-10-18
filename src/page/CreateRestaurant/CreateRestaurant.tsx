@@ -44,10 +44,11 @@ export const CreateRestaurantPage = () => {
   return (
     <>
     <ErrorMessage open={openError}>
-      error al intentar crear el restaurante
+      <p>¡ops! Something went wrong trying to create a new restaurant</p>
+      
     </ErrorMessage>
     <SuccessMessage open={openSuccess}>
-      se creo el restuarante
+      <p>Restaurant was created successfully</p>
     </SuccessMessage>
     <Header />
     <main className="my-10">

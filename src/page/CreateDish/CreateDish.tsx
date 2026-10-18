@@ -20,7 +20,7 @@ const defaultValues = {
 }
 
 export const CreateDishPage = () => {
-  const { mutate, isError, isSuccess } = useCreateDish()
+  const { mutate, isError, isSuccess, isPending } = useCreateDish()
   const [openError, setOpenError] = useState(false)
   const [openSuccess, setOpenSuccess] = useState(false)
   const { control, formState: { errors }, handleSubmit, reset } = useForm<createDishType>({
@@ -53,10 +53,10 @@ export const CreateDishPage = () => {
   return (
     <>
       <SuccessMessage open={openSuccess}>
-        se creo correctamente el plato
+        <p>Dish was created successfully</p>
       </SuccessMessage>
       <ErrorMessage open={openError}>
-        ocurrio un error al intentar crear el plato
+        <p>¡ops! Something went wrong trying to create dish</p>
       </ErrorMessage>
       <Header />
       <main className="my-10 mx-auto max-w-2xl rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
@@ -74,7 +74,9 @@ export const CreateDishPage = () => {
               <OptionsCategories />
             </Select>
             <TextArea control={control} label="Description" name="description" error={errors.description} />
-            <button className="bg-gray-700 p-3 rounded-lg text-white">Create</button>
+            <button 
+            disabled={isPending}
+            className={`bg-gray-700 p-3 rounded-lg text-white ${ isPending && "cursor-not-allowed"}`}>{ isPending ? "loading..." : "Create"}</button>
           </form>
         </section>
       </main>

@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
-
   const navegar = useNavigate();
 
   function handleLogin() {
@@ -13,7 +12,7 @@ export const HomePage = () => {
       <header className="bg-gray-800 text-white p-4 shadow-md">
         <nav className="flex justify-between items-center max-w-6xl mx-auto">
           <h1 className="text-2xl font-bold">
-            Maneja tu restaurante
+            Manage your restaurant
           </h1>
 
           <div className="flex gap-3">
@@ -30,16 +29,15 @@ export const HomePage = () => {
       <main>
         <section className="bg-gray-100 py-20">
           <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
-
             <div>
               <h2 className="text-5xl font-bold text-gray-800 leading-tight mb-6">
-                Administra tu restaurante de forma fácil y rápida
+                Manage your restaurant easily and quickly
               </h2>
 
               <p className="text-gray-600 text-lg mb-6">
-                Controla ventas, empleados, inventario y sedes desde un
-                solo lugar. Nuestra plataforma te ayuda a organizar
-                tu negocio y ahorrar tiempo en procesos diarios.
+                Control sales, employees, inventory, and locations from a
+                single place. Our platform helps you organize
+                your business and save time on daily processes.
               </p>
 
               <div className="flex gap-4">
@@ -47,114 +45,107 @@ export const HomePage = () => {
                   onClick={handleLogin}
                   className="border border-gray-800 hover:bg-gray-800 hover:text-white transition px-6 py-3 rounded-lg font-semibold"
                 >
-                  Ya tengo cuenta
+                  I already have an account
                 </button>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <h3 className="text-2xl font-bold mb-6 text-gray-800">
-                ¿Qué puedes hacer?
+                What can you do?
               </h3>
 
               <div className="space-y-5">
-
                 <div>
                   <h4 className="font-semibold text-orange-600">
-                    Gestión de ventas
+                    Sales management
                   </h4>
 
                   <p className="text-gray-600">
-                    Registra ventas rápidamente y mantén el control
-                    total de tus ingresos diarios.
+                    Record sales quickly and maintain total
+                    control of your daily revenue.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="font-semibold text-orange-600">
-                    Control de inventario
+                    Inventory control
                   </h4>
 
                   <p className="text-gray-600">
-                    Administra productos, ingredientes y cantidades
-                    disponibles en tiempo real.
+                    Manage products, ingredients, and available quantities
+                    in real time.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="font-semibold text-orange-600">
-                    Manejo de empleados
+                    Employee management
                   </h4>
 
                   <p className="text-gray-600">
-                    Crea roles para administradores y trabajadores
-                    con diferentes permisos.
+                    Create roles for administrators and staff
+                    with different permissions.
                   </p>
                 </div>
 
                 <div>
                   <h4 className="font-semibold text-orange-600">
-                    Múltiples sedes
+                    Multiple locations
                   </h4>
 
                   <p className="text-gray-600">
-                    Gestiona varias sucursales desde una sola plataforma.
+                    Manage multiple branches from a single platform.
                   </p>
                 </div>
-
               </div>
             </div>
-
           </div>
         </section>
 
-        {/* BENEFICIOS */}
+        {/* BENEFITS */}
         <section className="py-20 bg-white">
           <div className="max-w-6xl mx-auto px-6 text-center">
-
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              ¿Por qué usar nuestra plataforma?
+              Why use our platform?
             </h2>
 
             <p className="text-gray-600 mb-12">
-              Diseñada para restaurantes pequeños, medianos y grandes.
+              Designed for small, medium, and large restaurants.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">
-
               <div className="bg-gray-100 p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold mb-4 text-orange-600">
-                  Más organización
+                  Better organization
                 </h3>
 
                 <p className="text-gray-600">
-                  Centraliza toda la información de tu negocio
-                  en un solo sistema.
+                  Centralize all your business information
+                  in a single system.
                 </p>
               </div>
 
               <div className="bg-gray-100 p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold mb-4 text-orange-600">
-                  Ahorra tiempo
+                  Save time
                 </h3>
 
                 <p className="text-gray-600">
-                  Automatiza tareas repetitivas y mejora
-                  la eficiencia de tu equipo.
+                  Automate repetitive tasks and improve
+                  your team's efficiency.
                 </p>
               </div>
 
               <div className="bg-gray-100 p-8 rounded-2xl">
                 <h3 className="text-2xl font-bold mb-4 text-orange-600">
-                  Mejor control
+                  Better control
                 </h3>
 
                 <p className="text-gray-600">
-                  Visualiza ventas, inventario y rendimiento
-                  del negocio fácilmente.
+                  Easily view sales, inventory, and business performance.
                 </p>
               </div>
-
             </div>
           </div>
         </section>
@@ -163,7 +154,7 @@ export const HomePage = () => {
       <footer className="bg-gray-800 text-white py-6">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p>
-            © 2026 Maneja tu restaurante - Todos los derechos reservados
+            © 2026 Manage your restaurant - All rights reserved
           </p>
         </div>
       </footer>

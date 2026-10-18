@@ -5,7 +5,6 @@ import { useWaitressDishes } from "../../customHooks/useDishesWaitress/useDishes
 
 export const WaitressPage = () => {
   const { data } = useWaitressDishes()
-  console.log(data)
   return (
     <>
     <Header />
@@ -41,7 +40,7 @@ export const WaitressPage = () => {
             {data?.result.map((dish) => 
               <DishCardWaitress 
                 id={dish.id} 
-                image={dish.image_url} 
+                image={dish.image} 
                 name={dish.name} 
                 price={dish.price} 
                 key={dish.id} />

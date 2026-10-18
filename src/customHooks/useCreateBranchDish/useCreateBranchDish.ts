@@ -2,9 +2,8 @@ import { useMutation } from "@tanstack/react-query"
 import { post } from "../useActions"
 
 interface Body {
-    id:number;
+    dishId:number;
     price:number
-    name:string
 }
 
 export const useCreateBranchDish = () => {

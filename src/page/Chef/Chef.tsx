@@ -20,6 +20,8 @@ export const ChefPage = () => {
   const [orders, setOrders] = useState<Response[]>([])
 
   useEffect(() => {
+    socket.emit("get-orders-chef")
+    
     socket.on("orders-chef", (data) => {
       console.log(data)
       setOrders(data)
@@ -29,7 +31,7 @@ export const ChefPage = () => {
       setOrders((orders) => [...orders, data])
     })
 
-    socket.on("order-updated", (data) => {
+    socket.on("order-updated-chef", (data) => {
       console.log(data)
       if (data.newState === "COOKING") {
         setOrders((orders) => orders.map((order) => order.id === data.orderId ? { ...order, status: data.newState } : order))
@@ -39,12 +41,10 @@ export const ChefPage = () => {
 
     })
 
-    socket.emit("get-orders-chef")
-
     return () => {
       socket.off("orders-chef")
       socket.off("new-order-chef")
-      socket.off("order-updated")
+      socket.off("order-updated-chef")
     }
   }, [])
 
@@ -58,7 +58,10 @@ export const ChefPage = () => {
         </section>
 
         <section className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {orders.map(order => <OrderCardChef estado={order.status} key={order.id} dishes={order.Order_dish} id={order.id} />)}
+          { orders.map( order => (
+            <OrderCardChef estado={order.status} key={order.id} dishes={order.Order_dish} id={order.id} />
+            ))
+          }
         </section>
       </main>
     </>
