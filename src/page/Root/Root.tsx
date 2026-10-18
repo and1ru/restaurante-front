@@ -13,6 +13,7 @@ export const Root = () => {
     if (isSuccess && data?.result) {
       setAuth({
         name: data.result.name,
+        userName: data.result.userName,
         role: data.result.role
       });
     }

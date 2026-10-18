@@ -3,6 +3,7 @@ import { get } from '../useActions'
 
 interface Result{
     name:string;
+    userName:string
     role:string
 }
 

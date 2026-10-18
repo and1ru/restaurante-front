@@ -2,7 +2,8 @@ import { createContext, useContext } from "react";
 
 interface Auth{
     name:string;
-    role:string
+    userName:string
+    role: string
 }
 interface AuthContext {
     auth: Auth

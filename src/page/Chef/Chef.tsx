@@ -5,49 +5,54 @@ import { OrderCardChef } from "../../components/OrderCardChef/OrderCardChef";
 
 interface Dishes {
   name: string;
-  quantity: number
-  id: number
+  quantity: number;
+  id: number;
 }
 
 interface Response {
   id: number;
   status: string;
-  Order_dish: Dishes[]
-
+  Order_dish: Dishes[];
 }
 
 export const ChefPage = () => {
-  const [orders, setOrders] = useState<Response[]>([])
+  const [orders, setOrders] = useState<Response[]>([]);
 
   useEffect(() => {
-    socket.emit("get-orders-chef")
-    
+    socket.emit("get-orders-chef");
+
     socket.on("orders-chef", (data) => {
-      console.log(data)
-      setOrders(data)
-    })
+      console.log(data);
+      setOrders(data);
+    });
 
     socket.on("new-order-chef", (data) => {
-      setOrders((orders) => [...orders, data])
-    })
+      setOrders((orders) => [...orders, data]);
+    });
 
     socket.on("order-updated-chef", (data) => {
-      console.log(data)
+      console.log(data);
       if (data.newState === "COOKING") {
-        setOrders((orders) => orders.map((order) => order.id === data.orderId ? { ...order, status: data.newState } : order))
+        setOrders((orders) =>
+          orders.map((order) =>
+            order.id === data.orderId
+              ? { ...order, status: data.newState }
+              : order,
+          ),
+        );
       } else if (data.newState === "READY") {
-        setOrders((orders) => orders.filter((order) => order.id !== data.orderId))
+        setOrders((orders) =>
+          orders.filter((order) => order.id !== data.orderId),
+        );
       }
-
-    })
+    });
 
     return () => {
-      socket.off("orders-chef")
-      socket.off("new-order-chef")
-      socket.off("order-updated-chef")
-    }
-  }, [])
-
+      socket.off("get-orders-chef");
+      socket.off("new-order-chef");
+      socket.off("order-updated-chef");
+    };
+  }, []);
 
   return (
     <>
@@ -57,14 +62,18 @@ export const ChefPage = () => {
           <h1 className="text-3xl font-bold text-gray-900">Kitchen Orders</h1>
         </section>
 
-        <section className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          { orders.map( order => (
-            <OrderCardChef estado={order.status} key={order.id} dishes={order.Order_dish} id={order.id} />
-            ))
-          }
+        <section className={`${orders.length > 0 ? "grid gap-6 sm:grid-cols-2 xl:grid-cols-4" : ""}`}>
+          { orders.length === 0 ? <p className="bg-blue-300 w-full p-4 rounded-lg text-xl text-center">not orders yet</p> :
+            orders.map((order) => (
+              <OrderCardChef
+                estado={order.status}
+                key={order.id}
+                dishes={order.Order_dish}
+                id={order.id}
+              />
+            ))}
         </section>
       </main>
     </>
-
   );
 };

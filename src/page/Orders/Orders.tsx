@@ -47,8 +47,16 @@ export const Orders = () => {
             <section className="mb-10">
                 <h2 className="text-2xl font-bold text-center">Orders Ready</h2>
             </section>
-        <section className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {orders.map(order => <OrderCardWaitress estado={order.status} key={order.id} dishes={order.Order_dish} id={order.id} />)}
+        <section className={`${ orders.length > 0 ? "grid gap-6 sm:grid-cols-2 xl:grid-cols-4" : "" }`}>
+          { orders.length === 0 ? <p className="bg-blue-300 w-full p-4 rounded-lg text-xl text-center">no orders yet</p> :
+            orders.map(order => 
+              <OrderCardWaitress 
+                estado={order.status} 
+                key={order.id} 
+                dishes={order.Order_dish} 
+                id={order.id} 
+              />)
+          }
         </section>
         </main>
     </>

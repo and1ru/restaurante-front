@@ -4,7 +4,7 @@ import { apiClient } from "../apiClient";
 interface Result {
   id: number,
   salary: number,
-  hireDate: string,
+  hireDate: Date,
   name: string,
   role: string,
   branch: string

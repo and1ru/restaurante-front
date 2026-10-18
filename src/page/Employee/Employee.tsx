@@ -6,7 +6,17 @@ export const Employee = () => {
   const { employeeId } = useParams();
   const id = employeeId ? Number(employeeId) : 0;
   const { data, isError, isLoading } = useGetEmployee(id);
-  const employee = data?.result;
+
+  if(!data || isError){
+    return <p>error</p>
+  }
+
+  const employee = data.result;
+
+  const date = new Date(employee.hireDate)
+  const day = date.getDate()
+  const month = date.toLocaleDateString("en", { month: "long" })
+  const year = date.getFullYear()
 
   return (
     <>
@@ -82,7 +92,7 @@ export const Employee = () => {
                       Hire date
                     </p>
                     <p className="mt-2 text-xl font-bold text-slate-900">
-                      {employee.hireDate}
+                      {day} {month} {year}
                     </p>
                   </article>
                 </div>

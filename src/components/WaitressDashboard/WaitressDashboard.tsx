@@ -4,7 +4,7 @@ import { ActionCard } from "../ActionCard/ActionCard"
 import { HeaderDashboard } from "../HeaderDashboard/HeaderDashboard"
 
 export const WaitressDashboard = () => {
-  const { auth: {name}} = useAuthContext()
+  const { auth: {name, userName}} = useAuthContext()
     return(
         <>
         <HeaderDashboard />
@@ -15,11 +15,11 @@ export const WaitressDashboard = () => {
           </p>
 
           <h2 className="text-3xl font-bold text-gray-800 mt-2">
-            Hi, {name} 👋
+            Hi, {userName} 👋
           </h2>
 
           <p className="text-gray-600 mt-1">
-            Waitress
+            Waitress • { name }
           </p>
         </section>
         <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 p-4">
