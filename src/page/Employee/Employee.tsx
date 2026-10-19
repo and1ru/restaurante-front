@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { useGetEmployee } from "../../customHooks/useGetEmployee/useGetEmployee";
+import { FireButton } from "../../components/FireButton/FireButton";
 
 export const Employee = () => {
   const { employeeId } = useParams();
@@ -110,12 +111,7 @@ export const Employee = () => {
                   </p>
                 </div>
 
-                <button
-                  type="button"
-                  className="inline-flex shrink-0 items-center justify-center rounded-xl bg-red-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:bg-red-800"
-                >
-                  Fire employee
-                </button>
+                <FireButton employeeId={id} />
               </section>
             </>
           )}
